@@ -1162,72 +1162,6 @@ Possible extra rowspan handling
             [data-md] > :last-child {
                 margin-bottom: 0;
             }</style>
-<style>/* style-counters */
-
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
-
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
-
-            figure {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure);
-            }</style>
-<style>/* style-dfn-panel */
-
-        .dfn-panel {
-            position: absolute;
-            z-index: 35;
-            height: auto;
-            width: -webkit-fit-content;
-            width: fit-content;
-            max-width: 300px;
-            max-height: 500px;
-            overflow: auto;
-            padding: 0.5em 0.75em;
-            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-            background: #DDDDDD;
-            color: black;
-            border: outset 0.2em;
-        }
-        .dfn-panel:not(.on) { display: none; }
-        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-        .dfn-panel > b { display: block; }
-        .dfn-panel a { color: black; }
-        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-        .dfn-panel > b + b { margin-top: 0.25em; }
-        .dfn-panel ul { padding: 0; }
-        .dfn-panel li { list-style: inside; }
-        .dfn-panel.activated {
-            display: inline-block;
-            position: fixed;
-            left: .5em;
-            bottom: 2em;
-            margin: 0 auto;
-            max-width: calc(100vw - 1.5em - .4em - .5em);
-            max-height: 30vh;
-        }
-
-        .dfn-paneled { cursor: pointer; }
-        </style>
 <style>/* style-selflinks */
 
             .heading, .issue, .note, .example, li, dt {
@@ -1274,6 +1208,35 @@ Possible extra rowspan handling
             a.self-link::before            { content: "¶"; }
             .heading > a.self-link::before { content: "§"; }
             dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure);
+            }</style>
 <style>/* style-autolinks */
 
             .css.css, .property.property, .descriptor.descriptor {
@@ -1336,11 +1299,106 @@ Possible extra rowspan handling
             [data-link-type=biblio] {
                 white-space: pre;
             }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
+<style>/* style-syntax-highlighting */
+pre.idl.highlight { color: #708090; }
+        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+        code.highlight { padding: .1em; border-radius: .3em; }
+        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+        .highlight .c { color: #708090 } /* Comment */
+        .highlight .k { color: #990055 } /* Keyword */
+        .highlight .l { color: #000000 } /* Literal */
+        .highlight .n { color: #0077aa } /* Name */
+        .highlight .o { color: #999999 } /* Operator */
+        .highlight .p { color: #999999 } /* Punctuation */
+        .highlight .cm { color: #708090 } /* Comment.Multiline */
+        .highlight .cp { color: #708090 } /* Comment.Preproc */
+        .highlight .c1 { color: #708090 } /* Comment.Single */
+        .highlight .cs { color: #708090 } /* Comment.Special */
+        .highlight .kc { color: #990055 } /* Keyword.Constant */
+        .highlight .kd { color: #990055 } /* Keyword.Declaration */
+        .highlight .kn { color: #990055 } /* Keyword.Namespace */
+        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
+        .highlight .kr { color: #990055 } /* Keyword.Reserved */
+        .highlight .kt { color: #990055 } /* Keyword.Type */
+        .highlight .ld { color: #000000 } /* Literal.Date */
+        .highlight .m { color: #000000 } /* Literal.Number */
+        .highlight .s { color: #a67f59 } /* Literal.String */
+        .highlight .na { color: #0077aa } /* Name.Attribute */
+        .highlight .nc { color: #0077aa } /* Name.Class */
+        .highlight .no { color: #0077aa } /* Name.Constant */
+        .highlight .nd { color: #0077aa } /* Name.Decorator */
+        .highlight .ni { color: #0077aa } /* Name.Entity */
+        .highlight .ne { color: #0077aa } /* Name.Exception */
+        .highlight .nf { color: #0077aa } /* Name.Function */
+        .highlight .nl { color: #0077aa } /* Name.Label */
+        .highlight .nn { color: #0077aa } /* Name.Namespace */
+        .highlight .py { color: #0077aa } /* Name.Property */
+        .highlight .nt { color: #669900 } /* Name.Tag */
+        .highlight .nv { color: #222222 } /* Name.Variable */
+        .highlight .ow { color: #999999 } /* Operator.Word */
+        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
+        .highlight .mf { color: #000000 } /* Literal.Number.Float */
+        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
+        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
+        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
+        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
+        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
+        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
+        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
+        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
+        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+        </style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-06-08">8 June 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-07-12">12 July 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1503,8 +1561,8 @@ Possible extra rowspan handling
    </section>
    <section>
     <h2 class="heading settled" data-level="4" id="permission-descriptor"><span class="secno">4. </span><span class="content"> Descriptions of permission requests </span><a class="self-link" href="#permission-descriptor"></a></h2>
-<pre class="idl def" title="">dictionary <dfn class="dfn-paneled idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-permissiondescriptor">PermissionDescriptor</dfn> {
-  required <a data-link-type="idl-name" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-1">PermissionName</a> <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="PermissionName " id="dom-permissiondescriptor-name">name</dfn>;
+<pre class="idl highlight def" title=""><span class="kt">dictionary</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-permissiondescriptor">PermissionDescriptor</dfn> {
+  <span class="kt">required</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-1">PermissionName</a> <dfn class="nv dfn-paneled idl-code" data-dfn-for="PermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="PermissionName " id="dom-permissiondescriptor-name">name</dfn>;
 };
 </pre>
     <p> Each <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-1">powerful feature</a> has one or more aspects that websites can
@@ -1618,18 +1676,18 @@ Possible extra rowspan handling
    </section>
    <section>
     <h2 class="heading settled" data-level="6" id="permission-registry"><span class="secno">6. </span><span class="content"> Permission Registry </span><a class="self-link" href="#permission-registry"></a></h2>
-<pre class="idl def" title="">enum <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionname">PermissionName</dfn> {
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-1">"geolocation"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-1">"notifications"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-push" id="ref-for-dom-permissionname-push-1">"push"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-midi" id="ref-for-dom-permissionname-midi-2">"midi"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-1">"camera"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-1">"microphone"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-1">"speaker"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info" id="ref-for-dom-permissionname-device-info-1">"device-info"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1">"background-sync"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-1">"persistent-storage"</a>,
+<pre class="idl highlight def" title=""><span class="kt">enum</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionname">PermissionName</dfn> {
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-1">"geolocation"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-1">"notifications"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-push" id="ref-for-dom-permissionname-push-1">"push"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-midi" id="ref-for-dom-permissionname-midi-2">"midi"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-1">"camera"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-1">"microphone"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-1">"speaker"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info" id="ref-for-dom-permissionname-device-info-1">"device-info"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1">"background-sync"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-1">"persistent-storage"</a>,
 };
 </pre>
     <p> Each enumeration value in the <code class="idl"><a data-link-type="idl" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-3">PermissionName</a></code> enum identifies a <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-6">powerful feature</a>. Each <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-7">powerful feature</a> has the following
@@ -1691,8 +1749,8 @@ Possible extra rowspan handling
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-5">permission descriptor type</a> 
       <dd>
-<pre class="idl def">dictionary <dfn class="idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-pushpermissiondescriptor">PushPermissionDescriptor<a class="self-link" href="#dictdef-pushpermissiondescriptor"></a></dfn> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-4">PermissionDescriptor</a> {
-  boolean <dfn class="idl-code" data-default="false" data-dfn-for="PushPermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="boolean " id="dom-pushpermissiondescriptor-uservisibleonly">userVisibleOnly<a class="self-link" href="#dom-pushpermissiondescriptor-uservisibleonly"></a></dfn> = false;
+<pre class="idl highlight def"><span class="kt">dictionary</span> <dfn class="nv idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-pushpermissiondescriptor">PushPermissionDescriptor<a class="self-link" href="#dictdef-pushpermissiondescriptor"></a></dfn> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-4">PermissionDescriptor</a> {
+  <span class="kt">boolean</span> <dfn class="nv idl-code" data-default="false" data-dfn-for="PushPermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="boolean " id="dom-pushpermissiondescriptor-uservisibleonly">userVisibleOnly<a class="self-link" href="#dom-pushpermissiondescriptor-uservisibleonly"></a></dfn> = <span class="kt">false</span>;
 };
 </pre>
        <p> <code>{name: "push", userVisibleOnly: false}</code> is <a data-link-type="dfn" href="#permissiondescriptor-stronger-than" id="ref-for-permissiondescriptor-stronger-than-2">stronger than</a> <code>{name: "push", userVisibleOnly: true}</code>. </p>
@@ -1704,8 +1762,8 @@ Possible extra rowspan handling
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-6">permission descriptor type</a> 
       <dd>
-<pre class="idl def">dictionary <dfn class="idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-midipermissiondescriptor">MidiPermissionDescriptor<a class="self-link" href="#dictdef-midipermissiondescriptor"></a></dfn> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-5">PermissionDescriptor</a> {
-  boolean <dfn class="idl-code" data-default="false" data-dfn-for="MidiPermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="boolean " id="dom-midipermissiondescriptor-sysex">sysex<a class="self-link" href="#dom-midipermissiondescriptor-sysex"></a></dfn> = false;
+<pre class="idl highlight def"><span class="kt">dictionary</span> <dfn class="nv idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-midipermissiondescriptor">MidiPermissionDescriptor<a class="self-link" href="#dictdef-midipermissiondescriptor"></a></dfn> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-5">PermissionDescriptor</a> {
+  <span class="kt">boolean</span> <dfn class="nv idl-code" data-default="false" data-dfn-for="MidiPermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="boolean " id="dom-midipermissiondescriptor-sysex">sysex<a class="self-link" href="#dom-midipermissiondescriptor-sysex"></a></dfn> = <span class="kt">false</span>;
 };
 </pre>
        <p> <code>{name: "midi", sysex: true}</code> is <a data-link-type="dfn" href="#permissiondescriptor-stronger-than" id="ref-for-permissiondescriptor-stronger-than-3">stronger than</a> <code>{name: "midi", sysex: false}</code>. </p>
@@ -1722,8 +1780,8 @@ Possible extra rowspan handling
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-7">permission descriptor type</a> 
       <dd>
-<pre class="idl def">dictionary <dfn class="idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-devicepermissiondescriptor">DevicePermissionDescriptor<a class="self-link" href="#dictdef-devicepermissiondescriptor"></a></dfn> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-6">PermissionDescriptor</a> {
-  DOMString <dfn class="dfn-paneled idl-code" data-dfn-for="DevicePermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="DOMString " id="dom-devicepermissiondescriptor-deviceid">deviceId</dfn>;
+<pre class="idl highlight def"><span class="kt">dictionary</span> <dfn class="nv idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-devicepermissiondescriptor">DevicePermissionDescriptor<a class="self-link" href="#dictdef-devicepermissiondescriptor"></a></dfn> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-6">PermissionDescriptor</a> {
+  <span class="kt">DOMString</span> <dfn class="nv dfn-paneled idl-code" data-dfn-for="DevicePermissionDescriptor" data-dfn-type="dict-member" data-export="" data-type="DOMString " id="dom-devicepermissiondescriptor-deviceid">deviceId</dfn>;
 };
 </pre>
        <p> A permission covers access to the device given in the associated
@@ -1775,10 +1833,10 @@ Possible extra rowspan handling
    </section>
    <section>
     <h2 class="heading settled" data-level="7" id="status-of-a-permission"><span class="secno">7. </span><span class="content"> Status of a permission </span><a class="self-link" href="#status-of-a-permission"></a></h2>
-<pre class="idl def">enum <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionstate">PermissionState</dfn> {
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-12">"denied"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-prompt" id="ref-for-dom-permissionstate-prompt-4">"prompt"</a>,
+<pre class="idl highlight def"><span class="kt">enum</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionstate">PermissionState</dfn> {
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-12">"denied"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-prompt" id="ref-for-dom-permissionstate-prompt-4">"prompt"</a>,
 };
 </pre>
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-granted">"granted"</dfn> state represents
@@ -1790,10 +1848,10 @@ Possible extra rowspan handling
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-prompt">"prompt"</dfn> state represents
     that the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> will be asking the user’s permission if the caller tries to access the
     feature. The user might grant, deny or dismiss the request. </p>
-<pre class="idl def">[Exposed=(Window,Worker)]
-interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissionstatus">PermissionStatus</dfn> : <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
-  readonly attribute <a data-link-type="idl-name" href="#enumdef-permissionstate" id="ref-for-enumdef-permissionstate-2">PermissionState</a> <a class="idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state" id="ref-for-dom-permissionstatus-state-1">state</a>;
-  attribute <a data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange" id="ref-for-dom-permissionstatus-onchange-1">onchange</a>;
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissionstatus">PermissionStatus</dfn> : <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionstate" id="ref-for-enumdef-permissionstate-2">PermissionState</a> <a class="nv idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state" id="ref-for-dom-permissionstatus-state-1">state</a>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="nv idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange" id="ref-for-dom-permissionstatus-onchange-1">onchange</a>;
 };
 </pre>
     <p> <code class="idl"><a data-link-type="idl" href="#permissionstatus" id="ref-for-permissionstatus-3">PermissionStatus</a></code> instances are created with a <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionStatus" data-dfn-type="attribute" data-export="" id="dom-permissionstatus-query-slot">[[query]]</dfn> internal slot, which is an
@@ -1816,26 +1874,26 @@ interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-expor
    <section>
     <h2 class="heading settled" data-level="8" id="navigator-and-workernavigator-extension"><span class="secno">8. </span><span class="content"> Navigator and WorkerNavigator extension </span><a class="self-link" href="#navigator-and-workernavigator-extension"></a></h2>
     <p> A <code class="idl"><a data-link-type="idl" href="#permissions" id="ref-for-permissions-4">Permissions</a></code> instance is exposed on the <code>navigator</code> object for <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/browsers.html#window">Window</a></code> and <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/workers.html#worker">Worker</a></code> contexts. </p>
-<pre class="idl def">[Exposed=(Window)]
-partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
-  readonly attribute <a data-link-type="idl-name" href="#permissions" id="ref-for-permissions-5">Permissions</a> <dfn class="idl-code" data-dfn-for="Navigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-navigator-permissions">permissions<a class="self-link" href="#dom-navigator-permissions"></a></dfn>;
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>)]
+<span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-5">Permissions</a> <dfn class="nv idl-code" data-dfn-for="Navigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-navigator-permissions">permissions<a class="self-link" href="#dom-navigator-permissions"></a></dfn>;
 };
 </pre>
-<pre class="idl def">[Exposed=(Worker)]
-partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
-  readonly attribute <a data-link-type="idl-name" href="#permissions" id="ref-for-permissions-6">Permissions</a> <dfn class="idl-code" data-dfn-for="WorkerNavigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-workernavigator-permissions">permissions<a class="self-link" href="#dom-workernavigator-permissions"></a></dfn>;
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Worker</span>)]
+<span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-6">Permissions</a> <dfn class="nv idl-code" data-dfn-for="WorkerNavigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-workernavigator-permissions">permissions<a class="self-link" href="#dom-workernavigator-permissions"></a></dfn>;
 };
 </pre>
    </section>
    <section>
     <h2 class="heading settled" data-level="9" id="permissions-interface"><span class="secno">9. </span><span class="content"> Permissions interface </span><a class="self-link" href="#permissions-interface"></a></h2>
-<pre class="idl def">[Exposed=(Window,Worker)]
-interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissions">Permissions</dfn> {
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-5">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-query" id="ref-for-dom-permissions-query-2">query</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-8">PermissionDescriptor</a> <dfn class="idl-code" data-dfn-for="Permissions/query(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-query-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-query-permissiondesc-permissiondesc"></a></dfn>);
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissions">Permissions</dfn> {
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-5">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-query" id="ref-for-dom-permissions-query-2">query</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-8">PermissionDescriptor</a> <dfn class="nv idl-code" data-dfn-for="Permissions/query(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-query-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-query-permissiondesc-permissiondesc"></a></dfn>);
 
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-6">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-request" id="ref-for-dom-permissions-request-2">request</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-9">PermissionDescriptor</a> <dfn class="idl-code" data-dfn-for="Permissions/request(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-request-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-request-permissiondesc-permissiondesc"></a></dfn>);
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-6">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-request" id="ref-for-dom-permissions-request-2">request</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-9">PermissionDescriptor</a> <dfn class="nv idl-code" data-dfn-for="Permissions/request(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-request-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-request-permissiondesc-permissiondesc"></a></dfn>);
 
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-7">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-revoke" id="ref-for-dom-permissions-revoke-2">revoke</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-10">PermissionDescriptor</a> <dfn class="idl-code" data-dfn-for="Permissions/revoke(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-revoke-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-revoke-permissiondesc-permissiondesc"></a></dfn>);
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-7">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-revoke" id="ref-for-dom-permissions-revoke-2">revoke</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-10">PermissionDescriptor</a> <dfn class="nv idl-code" data-dfn-for="Permissions/revoke(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-revoke-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-revoke-permissiondesc-permissiondesc"></a></dfn>);
 };
 </pre>
     <p> When the <dfn class="dfn-paneled idl-code" data-dfn-for="Permissions" data-dfn-type="method" data-export="" data-lt="query(permissionDesc)" id="dom-permissions-query">query()</dfn> method is invoked,
@@ -1922,16 +1980,19 @@ interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-expor
      <p> This example uses the Permissions API to decide whether local news
     should be shown using the Geolocation API or with a button offering to
     add the feature. </p>
-<pre class="highlight">&lt;script>
-  navigator.permissions.query({name:'geolocation'}).then(function(result) {
-    if (result.state == 'granted') {
+<pre class="highlight">navigator.permissions.query({ name: "geolocation" }).then(({ state }) => {
+  switch (state) {
+    case "granted":
       showLocalNewsWithGeolocation();
-    } else if (result.state == 'prompt') {
+      break;
+    case "prompt":
       showButtonToEnableLocalNews();
-    }
-    // Don’t do anything if the permission was denied.
-  });
-&lt;/script>
+      break;
+    default:
+      // Don’t do anything if the permission was denied.
+      break;
+  }
+});
 </pre>
     </div>
     <div class="example" id="example-notifications">
@@ -1939,49 +2000,55 @@ interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-expor
      <p> This example is using the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-2">"notifications"</a></code> permission for a
     chat application to show a notification button depending on the
     permission state. </p>
-<pre class="highlight">&lt;script>
-  function updateNotificationButton(state) {
-    document.getElementById('chat-notification-button').disabled = (state == 'denied');
-  }
+<pre class="highlight">function updateNotificationButton(state) {
+  document.getElementById('chat-notification-button')
+    .disabled = (state === 'denied');
+}
 
-  navigator.permissions.query({name:'notifications'}).then(function(result) {
+navigator.permissions.query({ name: 'notifications' }).then((result) => {
+  updateNotificationButton(result.state);
+  result.addEventListener('change', () => {
     updateNotificationButton(result.state);
-
-    result.addEventListener('change', function() {
-      updateNotificationButton(this.state);
-    });
   });
-&lt;/script>
+});
 </pre>
     </div>
     <div class="example" id="example-two-permissions">
      <a class="self-link" href="#example-two-permissions"></a> 
      <p> This example is checking whether the page has the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-2">"geolocation"</a></code> and the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-3">"notifications"</a></code> permissions
     using <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>.all</code>. </p>
-<pre class="highlight">&lt;script>
-  Promise.all([navigator.permissions.query({name:'geolocation'}),
-               navigator.permissions.query({name:'notifications'})])
-  .then(function(result) {
-    console.log('Geolocation permission state is ' + result[0].state);
-    console.log('Notifications permission state is ' + result[1].state);
-  });
-&lt;/script>
+<pre class="highlight">Promise.all([
+  navigator.permissions.query({ name: "geolocation" }),
+  navigator.permissions.query({ name: "notifications" })
+])
+.then(([{ state: geoState }, { state: notifState }]) => {
+  console.log("Geolocation permission state is:", geoState);
+  console.log("Notifications permission state is:", notifState);
+});
 </pre>
     </div>
     <div class="example" id="example-deviceId">
      <a class="self-link" href="#example-deviceId"></a> 
-     <p> This example is checking whether the page has the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-4">"camera"</a></code> permission for the first device in the list. Error checking omitted. </p>
-<pre class="highlight">&lt;script>
-  navigator.mediaDevices.enumerateDevices()
-  .then(function(devices) {
-     return navigator.permissions.query({name:'camera',
-                                         deviceId: devices[0].deviceId})
+     <p> This example is checking the permission state of the available cameras. </p>
+<pre class="highlight">navigator.mediaDevices
+  .enumerateDevices()
+  .then(devices => {
+    return Promise.all(devices
+      // filter on video inputs
+      .filter(({ kind }) => kind === "videoinput")
+      // map to query object
+      .map(({ deviceId }) => ({ name: "camera", deviceId }))
+      // map to query promise
+      .map(queryObj => navigator.permissions.query(queryObj))
+    );
   })
-  .then(function(result) {
-     console.log('Camera permission to first camera is ' + result.state);
-  }
-  .catch(err => console.log('Bad things happened: ' + err.name));
-&lt;/script>
+  // log the state or each camera
+  .then(results => results.forEach(
+    ({ state }, i) => console.log(<code>Camera ${i}: "${state}"</code>)
+  ))
+  .catch(
+    err => console.error(err.stack)
+  );
 </pre>
     </div>
    </section>
@@ -2200,65 +2267,65 @@ interface <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-expor
    <dd>Chris Wilson; Jussi Kalliokoski. <a href="https://webaudio.github.io/web-midi-api/">Web MIDI API</a>. 17 March 2015. WD. URL: <a href="https://webaudio.github.io/web-midi-api/">https://webaudio.github.io/web-midi-api/</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="idl-index"><span class="content">IDL Index</span><a class="self-link" href="#idl-index"></a></h2>
-<pre class="idl def">dictionary <a href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
-  required <a data-link-type="idl-name" href="#enumdef-permissionname">PermissionName</a> <a data-type="PermissionName " href="#dom-permissiondescriptor-name">name</a>;
+<pre class="idl def"><span class="kt">dictionary</span> <a class="nv" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
+  <span class="kt">required</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionname">PermissionName</a> <a class="nv" data-type="PermissionName " href="#dom-permissiondescriptor-name">name</a>;
 };
 
-enum <a href="#enumdef-permissionname">PermissionName</a> {
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation">"geolocation"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications">"notifications"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-push">"push"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-midi">"midi"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-camera">"camera"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone">"microphone"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker">"speaker"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info">"device-info"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync">"background-sync"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage">"persistent-storage"</a>,
+<span class="kt">enum</span> <a class="nv" href="#enumdef-permissionname">PermissionName</a> {
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation">"geolocation"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications">"notifications"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-push">"push"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-midi">"midi"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-camera">"camera"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone">"microphone"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker">"speaker"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info">"device-info"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync">"background-sync"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage">"persistent-storage"</a>,
 };
 
-dictionary <a href="#dictdef-pushpermissiondescriptor">PushPermissionDescriptor</a> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
-  boolean <a data-default="false" data-type="boolean " href="#dom-pushpermissiondescriptor-uservisibleonly">userVisibleOnly</a> = false;
+<span class="kt">dictionary</span> <a class="nv" href="#dictdef-pushpermissiondescriptor">PushPermissionDescriptor</a> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
+  <span class="kt">boolean</span> <a class="nv" data-default="false" data-type="boolean " href="#dom-pushpermissiondescriptor-uservisibleonly">userVisibleOnly</a> = <span class="kt">false</span>;
 };
 
-dictionary <a href="#dictdef-midipermissiondescriptor">MidiPermissionDescriptor</a> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
-  boolean <a data-default="false" data-type="boolean " href="#dom-midipermissiondescriptor-sysex">sysex</a> = false;
+<span class="kt">dictionary</span> <a class="nv" href="#dictdef-midipermissiondescriptor">MidiPermissionDescriptor</a> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
+  <span class="kt">boolean</span> <a class="nv" data-default="false" data-type="boolean " href="#dom-midipermissiondescriptor-sysex">sysex</a> = <span class="kt">false</span>;
 };
 
-dictionary <a href="#dictdef-devicepermissiondescriptor">DevicePermissionDescriptor</a> : <a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
-  DOMString <a data-type="DOMString " href="#dom-devicepermissiondescriptor-deviceid">deviceId</a>;
+<span class="kt">dictionary</span> <a class="nv" href="#dictdef-devicepermissiondescriptor">DevicePermissionDescriptor</a> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
+  <span class="kt">DOMString</span> <a class="nv" data-type="DOMString " href="#dom-devicepermissiondescriptor-deviceid">deviceId</a>;
 };
 
-enum <a href="#enumdef-permissionstate">PermissionState</a> {
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-granted">"granted"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-denied">"denied"</a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionstate-prompt">"prompt"</a>,
+<span class="kt">enum</span> <a class="nv" href="#enumdef-permissionstate">PermissionState</a> {
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-granted">"granted"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-denied">"denied"</a>,
+  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-prompt">"prompt"</a>,
 };
 
-[Exposed=(Window,Worker)]
-interface <a href="#permissionstatus">PermissionStatus</a> : <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
-  readonly attribute <a data-link-type="idl-name" href="#enumdef-permissionstate">PermissionState</a> <a class="idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state">state</a>;
-  attribute <a data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange">onchange</a>;
+[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<span class="kt">interface</span> <a class="nv" href="#permissionstatus">PermissionStatus</a> : <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionstate">PermissionState</a> <a class="nv idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state">state</a>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="nv idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange">onchange</a>;
 };
 
-[Exposed=(Window)]
-partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
-  readonly attribute <a data-link-type="idl-name" href="#permissions">Permissions</a> <a data-readonly="" data-type="Permissions" href="#dom-navigator-permissions">permissions</a>;
+[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>)]
+<span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions">Permissions</a> <a class="nv" data-readonly="" data-type="Permissions" href="#dom-navigator-permissions">permissions</a>;
 };
 
-[Exposed=(Worker)]
-partial interface <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
-  readonly attribute <a data-link-type="idl-name" href="#permissions">Permissions</a> <a data-readonly="" data-type="Permissions" href="#dom-workernavigator-permissions">permissions</a>;
+[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Worker</span>)]
+<span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions">Permissions</a> <a class="nv" data-readonly="" data-type="Permissions" href="#dom-workernavigator-permissions">permissions</a>;
 };
 
-[Exposed=(Window,Worker)]
-interface <a href="#permissions">Permissions</a> {
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-query">query</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a href="#dom-permissions-query-permissiondesc-permissiondesc">permissionDesc</a>);
+[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<span class="kt">interface</span> <a class="nv" href="#permissions">Permissions</a> {
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-query">query</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a class="nv" href="#dom-permissions-query-permissiondesc-permissiondesc">permissionDesc</a>);
 
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-request">request</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a href="#dom-permissions-request-permissiondesc-permissiondesc">permissionDesc</a>);
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-request">request</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a class="nv" href="#dom-permissions-request-permissiondesc-permissiondesc">permissionDesc</a>);
 
-  Promise&lt;<a data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="idl-code" data-link-type="method" href="#dom-permissions-revoke">revoke</a>(<a data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a href="#dom-permissions-revoke-permissiondesc-permissiondesc">permissionDesc</a>);
+  <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-revoke">revoke</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a class="nv" href="#dom-permissions-revoke-permissiondesc-permissiondesc">permissionDesc</a>);
 };
 
 </pre>
@@ -2513,8 +2580,6 @@ interface <a href="#permissions">Permissions</a> {
     Permission Registry </a>
     <li><a href="#ref-for-dom-permissionname-camera-2">6.5. 
       Media Devices </a> <a href="#ref-for-dom-permissionname-camera-3">(2)</a>
-    <li><a href="#ref-for-dom-permissionname-camera-4">11. 
-    Examples </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionname-microphone">
