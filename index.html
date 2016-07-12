@@ -1873,15 +1873,14 @@ pre.idl.highlight { color: #708090; }
    </section>
    <section>
     <h2 class="heading settled" data-level="8" id="navigator-and-workernavigator-extension"><span class="secno">8. </span><span class="content"> Navigator and WorkerNavigator extension </span><a class="self-link" href="#navigator-and-workernavigator-extension"></a></h2>
-    <p> A <code class="idl"><a data-link-type="idl" href="#permissions" id="ref-for-permissions-4">Permissions</a></code> instance is exposed on the <code>navigator</code> object for <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/browsers.html#window">Window</a></code> and <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/workers.html#worker">Worker</a></code> contexts. </p>
 <pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-5">Permissions</a> <dfn class="nv idl-code" data-dfn-for="Navigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-navigator-permissions">permissions<a class="self-link" href="#dom-navigator-permissions"></a></dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-4">Permissions</a> <dfn class="nv idl-code" data-dfn-for="Navigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-navigator-permissions">permissions<a class="self-link" href="#dom-navigator-permissions"></a></dfn>;
 };
 </pre>
 <pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Worker</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-6">Permissions</a> <dfn class="nv idl-code" data-dfn-for="WorkerNavigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-workernavigator-permissions">permissions<a class="self-link" href="#dom-workernavigator-permissions"></a></dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-5">Permissions</a> <dfn class="nv idl-code" data-dfn-for="WorkerNavigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-workernavigator-permissions">permissions<a class="self-link" href="#dom-workernavigator-permissions"></a></dfn>;
 };
 </pre>
    </section>
@@ -2171,8 +2170,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <ul>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#window">Window</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/workers.html#worker">Worker</a>
      <li><a href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a>
      <li><a href="https://html.spec.whatwg.org/multipage/#ancestor-browsing-context">ancestor browsing context</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#browsing-context-container">browsing context container</a>
@@ -2726,7 +2723,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-permissions-1">6. 
     Permission Registry </a> <a href="#ref-for-permissions-2">(2)</a> <a href="#ref-for-permissions-3">(3)</a>
     <li><a href="#ref-for-permissions-4">8. 
-    Navigator and WorkerNavigator extension </a> <a href="#ref-for-permissions-5">(2)</a> <a href="#ref-for-permissions-6">(3)</a>
+    Navigator and WorkerNavigator extension </a> <a href="#ref-for-permissions-5">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissions-query">
