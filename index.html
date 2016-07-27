@@ -1398,7 +1398,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-07-26">26 July 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-07-27">27 July 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1640,7 +1640,7 @@ pre.idl.highlight { color: #708090; }
       user input; so they shouldn’t be used from other algorithms running on
       the main thread. </p>
      <div data-algorithm="request-permission-to-use">
-      <p> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" id="request-permission-to-use">request permission to use</dfn> a <var>descriptor</var>, the UA
+      <p> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" data-lt="request permission to use|requesting permission to use" id="request-permission-to-use">request permission to use</dfn> a <var>descriptor</var>, the UA
         must perform the following steps. This algorithm returns either <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-4">"granted"</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-4">"denied"</a></code>. </p>
       <ol>
        <li> Let <var>current state</var> be the <var>descriptor</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-3">permission
@@ -1658,7 +1658,7 @@ pre.idl.highlight { color: #708090; }
       </ol>
      </div>
      <div data-algorithm="prompt-user-to-choose">
-      <p> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" id="prompt-the-user-to-choose">prompt the user to choose</dfn> one of several <var>options</var> associated with a <var>descriptor</var>, the UA must perform the following steps.
+      <p> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" data-lt="prompt the user to choose|prompting the user to choose" id="prompt-the-user-to-choose">prompt the user to choose</dfn> one of several <var>options</var> associated with a <var>descriptor</var>, the UA must perform the following steps.
         This algorithm returns either <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-6">"denied"</a></code> or one of the options. </p>
       <ol>
        <li> If <var>descriptor</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-4">permission state</a> is <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-7">"denied"</a></code>,
@@ -2159,12 +2159,14 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li><a href="#dom-permissionname-persistent-storage">"persistent-storage"</a><span>, in §6.7</span>
    <li><a href="#powerful-feature">Powerful feature</a><span>, in §3</span>
    <li><a href="#dom-permissionstate-prompt">"prompt"</a><span>, in §7</span>
+   <li><a href="#prompt-the-user-to-choose">prompting the user to choose</a><span>, in §5.2</span>
    <li><a href="#prompt-the-user-to-choose">prompt the user to choose</a><span>, in §5.2</span>
    <li><a href="#dom-permissionname-push">"push"</a><span>, in §6.3</span>
    <li><a href="#dictdef-pushpermissiondescriptor">PushPermissionDescriptor</a><span>, in §6.3</span>
    <li><a href="#dom-permissionstatus-query-slot">[[query]]</a><span>, in §7</span>
    <li><a href="#query-a-permission">query a permission</a><span>, in §9</span>
    <li><a href="#dom-permissions-query">query(permissionDesc)</a><span>, in §9</span>
+   <li><a href="#request-permission-to-use">requesting permission to use</a><span>, in §5.2</span>
    <li><a href="#dom-permissions-request">request(permissionDesc)</a><span>, in §9</span>
    <li><a href="#request-permission-to-use">request permission to use</a><span>, in §5.2</span>
    <li><a href="#dom-permissions-revoke">revoke(permissionDesc)</a><span>, in §9</span>
