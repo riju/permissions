@@ -1408,7 +1408,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-05">5 August 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-10">10 August 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1718,12 +1718,12 @@ pre.idl.highlight { color: #708090; }
 </pre>
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-granted">"granted"</dfn> state represents
     that the caller will be able
-    to successfuly access the feature without having the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> asking the user’s permission. </p>
+    to successfuly access the feature without having the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> asking the user’s permission. </p>
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-denied">"denied"</dfn> state represents
     that the caller will not be
     able to access the feature. </p>
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-prompt">"prompt"</dfn> state represents
-    that the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> will be asking the user’s permission if the caller tries to access the
+    that the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> will be asking the user’s permission if the caller tries to access the
     feature. The user might grant, deny or dismiss the request. </p>
 <pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
 <span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissionstatus">PermissionStatus</dfn> : <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
@@ -1740,7 +1740,7 @@ pre.idl.highlight { color: #708090; }
     instance. </p>
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionStatus" data-dfn-type="attribute" data-export="" id="dom-permissionstatus-onchange">onchange</dfn> attribute is an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handlers">event handler</a> whose corresponding <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-event-type">event handler event
     type</a> is <code>change</code>. </p>
-    <p id="PermissionStatus-update"> Whenever the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> is aware that the state of a <code class="idl"><a data-link-type="idl" href="#permissionstatus" id="ref-for-permissionstatus-2">PermissionStatus</a></code> instance <var>status</var> has changed,
+    <p id="PermissionStatus-update"> Whenever the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> is aware that the state of a <code class="idl"><a data-link-type="idl" href="#permissionstatus" id="ref-for-permissionstatus-2">PermissionStatus</a></code> instance <var>status</var> has changed,
     it MUST asynchronously run the following steps: </p>
     <ol>
      <li> Run <code><var>status</var>@<code class="idl"><a data-link-type="idl" href="#dom-permissionstatus-query-slot" id="ref-for-dom-permissionstatus-query-slot-2">[[query]]</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-7">name</a></code></code>’s <a data-link-type="dfn" href="#permission-query-algorithm" id="ref-for-permission-query-algorithm-1">permission
@@ -1773,7 +1773,7 @@ pre.idl.highlight { color: #708090; }
 };
 </pre>
     <p> When the <dfn class="dfn-paneled idl-code" data-dfn-for="Permissions" data-dfn-type="method" data-export="" data-lt="query(permissionDesc)" id="dom-permissions-query">query()</dfn> method is invoked,
-    the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> MUST run the following <dfn data-dfn-type="dfn" data-export="" data-lt="query a permission" id="query-a-permission">query a
+    the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> MUST run the following <dfn data-dfn-type="dfn" data-export="" data-lt="query a permission" id="query-a-permission">query a
     permission<a class="self-link" href="#query-a-permission"></a></dfn> algorithm, passing the parameter <var>permissionDesc</var>: </p>
     <ol>
      <li>
@@ -1798,7 +1798,7 @@ pre.idl.highlight { color: #708090; }
     recommend the use of <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>.all()</code>. An example can be
     found in the <a href="#examples">Examples section</a>. </div>
     <p> When the <dfn class="dfn-paneled idl-code" data-dfn-for="Permissions" data-dfn-type="method" data-export="" data-lt="request(permissionDesc)" id="dom-permissions-request">request()</dfn> method is invoked,
-    the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a> MUST run the following algorithm, passing the
+    the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> MUST run the following algorithm, passing the
     parameter <var>permissionDesc</var>: </p>
     <ol class="algorithm">
      <li>
@@ -1974,10 +1974,11 @@ pre.idl.highlight { color: #708090; }
           request for a camera will succeed. </p>
        <p> If a permission state is present for access to some, but not all,
           cameras, a query without the <code class="idl"><a data-link-type="idl" href="#dom-devicepermissiondescriptor-deviceid" id="ref-for-dom-devicepermissiondescriptor-deviceid-3">deviceId</a></code> will return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-prompt" id="ref-for-dom-permissionstate-prompt-7">"prompt"</a></code>. </p>
-       <p class="issue" id="issue-media-granted"><a class="self-link" href="#issue-media-granted"></a> It may not make sense for <code>{name: "camera"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> to ever be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>: if the UA returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> from <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-16">permission state</a>, the above paragraphs say it’s promising to
-          return from <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/mediacapture-main/#dom-mediadevices-getusermedia">getUserMedia()</a></code> without prompting no
-          matter what the constraints are, but if that call has constraints that
-          none of the user’s devices satisfy, the UA cannot return a device. </p>
+       <p> Note that a "granted" permission is no guarantee that getUserMedia
+          will succeed. It only guarantees that the user will not be
+          prompted for permission. There are many other things (such as
+          constraints or the camera being in use) that can cause getUserMedia
+          to fail. </p>
       <dt> <a data-link-type="dfn" href="#extra-permission-data-type" id="ref-for-extra-permission-data-type-3">extra permission data type</a> 
       <dd> A list of <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/mediacapture-main/#deviceid">deviceId</a></code> values for the devices the user
         has granted access to. 
@@ -2006,7 +2007,7 @@ pre.idl.highlight { color: #708090; }
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-persistent-storage">"persistent-storage"</dfn> permission allows an origin to make its <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#site-storage-unit">site storage unit</a> contain a <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#persistent-box">persistent box</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-2">"persistent-storage"</a></code> is a <a data-link-type="dfn" href="#boolean-feature" id="ref-for-boolean-feature-3">boolean
       feature</a>. </p>
      <p> If a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#origin-2">origin</a> <var>O</var> <a data-link-type="dfn" href="#request-permission-to-use" id="ref-for-request-permission-to-use-4">requests permission to use</a> <code>{name: "persistent-storage"}</code> and
-      that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-13">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-17">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-14">"granted"</a></code> in
+      that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> in
       all <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#origin-2">origin</a> <var>O</var> until the UA receives <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-8">new
       information about the user’s intent</a>. </p>
     </section>
@@ -2264,7 +2265,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[uievents]</a> defines the following terms:
     <ul>
-     <li><a href="https://www.w3.org/TR/uievents/#dfn-user-agent">user agent</a>
+     <li><a href="https://www.w3.org/TR/uievents/#user-agent">user agent</a>
     </ul>
    <li>
     <a data-link-type="biblio">[web-bluetooth]</a> defines the following terms:
@@ -2295,7 +2296,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dt id="biblio-storage">[STORAGE]
    <dd>Anne van Kesteren. <a href="https://storage.spec.whatwg.org/">Storage Standard</a>. Living Standard. URL: <a href="https://storage.spec.whatwg.org/">https://storage.spec.whatwg.org/</a>
    <dt id="biblio-uievents">[UIEVENTS]
-   <dd>Gary Kacmarcik; Travis Leithead. <a href="https://w3c.github.io/uievents/">UI Events Specification</a>. 15 December 2015. WD. URL: <a href="https://w3c.github.io/uievents/">https://w3c.github.io/uievents/</a>
+   <dd>Gary Kacmarcik; Travis Leithead. <a href="https://github.com/w3c/uievents/">UI Events</a>. 4 August 2016. WD. URL: <a href="https://github.com/w3c/uievents/">https://github.com/w3c/uievents/</a>
    <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
    <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webidl">[WEBIDL]
@@ -2393,10 +2394,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
         mean that no permissions should use the <a data-link-type="dfn" href="#boolean-permission-request-algorithm">boolean permission request
         algorithm</a>, since it can never return an appropriate
         object-capability. <a href="#issue-non-persistent-grants"> ↵ </a></div>
-   <div class="issue"> It may not make sense for <code>{name: "camera"}</code>'s <a data-link-type="dfn" href="#permission-state">permission state</a> to ever be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted">"granted"</a></code>: if the UA returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted">"granted"</a></code> from <a data-link-type="dfn" href="#permission-state">permission state</a>, the above paragraphs say it’s promising to
-          return from <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/mediacapture-main/#dom-mediadevices-getusermedia">getUserMedia()</a></code> without prompting no
-          matter what the constraints are, but if that call has constraints that
-          none of the user’s devices satisfy, the UA cannot return a device. <a href="#issue-media-granted"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="new-information-about-the-users-intent">
    <b><a href="#new-information-about-the-users-intent">#new-information-about-the-users-intent</a></b><b>Referenced in:</b>
@@ -2480,8 +2477,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-permission-state-9">10. 
     Permission Registry </a> <a href="#ref-for-permission-state-10">(2)</a> <a href="#ref-for-permission-state-11">(3)</a> <a href="#ref-for-permission-state-12">(4)</a> <a href="#ref-for-permission-state-13">(5)</a>
     <li><a href="#ref-for-permission-state-14">10.5. 
-      Media Devices </a> <a href="#ref-for-permission-state-15">(2)</a> <a href="#ref-for-permission-state-16">(3)</a>
-    <li><a href="#ref-for-permission-state-17">10.7. 
+      Media Devices </a>
+    <li><a href="#ref-for-permission-state-15">10.7. 
       Persistent Storage </a>
    </ul>
   </aside>
@@ -2528,9 +2525,9 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-dom-permissionstate-granted-8">10. 
     Permission Registry </a> <a href="#ref-for-dom-permissionstate-granted-9">(2)</a>
     <li><a href="#ref-for-dom-permissionstate-granted-10">10.5. 
-      Media Devices </a> <a href="#ref-for-dom-permissionstate-granted-11">(2)</a> <a href="#ref-for-dom-permissionstate-granted-12">(3)</a>
-    <li><a href="#ref-for-dom-permissionstate-granted-13">10.7. 
-      Persistent Storage </a> <a href="#ref-for-dom-permissionstate-granted-14">(2)</a>
+      Media Devices </a>
+    <li><a href="#ref-for-dom-permissionstate-granted-11">10.7. 
+      Persistent Storage </a> <a href="#ref-for-dom-permissionstate-granted-12">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionstate-denied">
