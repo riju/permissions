@@ -457,7 +457,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: inherit;
+		font-size: normal;
 	}
 	dfn var {
 		font-style: normal;
@@ -1408,7 +1408,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-10">10 August 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-26">26 August 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1955,7 +1955,7 @@ pre.idl.highlight { color: #708090; }
       specified in <a data-link-type="biblio" href="#biblio-getusermedia">[GETUSERMEDIA]</a> and <a data-link-type="biblio" href="#biblio-audio-output">[audio-output]</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-2">"speaker"</a></code> is <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-5">allowed in non-secure contexts</a>. </p>
      <p> If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-browsing-context">responsible browsing
       context</a> or any of its <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#ancestor-browsing-context">ancestor browsing contexts</a> has a <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#browsing-context-container">browsing context container</a> that isn’t an <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element">iframe</a></code> element with
-      the <code><a data-link-type="element-sub" href="https://w3c.github.io/mediacapture-main/#iframe-allowusermedia">allowusermedia</a></code> attribute specified, then the <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-14">permission
+      the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a></code> attribute specified, then the <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-14">permission
       state</a> of any descriptor with a <code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-9">name</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-2">"camera"</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-2">"microphone"</a></code> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-13">"denied"</a></code>. </p>
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-14">permission descriptor type</a> 
@@ -2006,9 +2006,9 @@ pre.idl.highlight { color: #708090; }
      <h3 class="heading settled" data-level="10.7" id="persistent-storage"><span class="secno">10.7. </span><span class="content"> Persistent Storage </span><a class="self-link" href="#persistent-storage"></a></h3>
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-persistent-storage">"persistent-storage"</dfn> permission allows an origin to make its <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#site-storage-unit">site storage unit</a> contain a <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#persistent-box">persistent box</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-2">"persistent-storage"</a></code> is a <a data-link-type="dfn" href="#boolean-feature" id="ref-for-boolean-feature-3">boolean
       feature</a>. </p>
-     <p> If a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#origin-2">origin</a> <var>O</var> <a data-link-type="dfn" href="#request-permission-to-use" id="ref-for-request-permission-to-use-4">requests permission to use</a> <code>{name: "persistent-storage"}</code> and
+     <p> If a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> <a data-link-type="dfn" href="#request-permission-to-use" id="ref-for-request-permission-to-use-4">requests permission to use</a> <code>{name: "persistent-storage"}</code> and
       that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> in
-      all <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#origin-2">origin</a> <var>O</var> until the UA receives <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-8">new
+      all <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> until the UA receives <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-8">new
       information about the user’s intent</a>. </p>
     </section>
    </section>
@@ -2221,6 +2221,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a>
      <li><a href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a>
      <li><a href="https://html.spec.whatwg.org/multipage/#ancestor-browsing-context">ancestor browsing context</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#browsing-context-container">browsing context containers</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>
@@ -2229,7 +2230,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handlers">event handlers</a>
      <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element">iframe</a>
      <li><a href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel">in parallel</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#origin-2">origin</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">queue a task</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-browsing-context">responsible browsing context</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event loop</a>
@@ -2239,7 +2240,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[mediacapture-main]</a> defines the following terms:
     <ul>
-     <li><a href="https://w3c.github.io/mediacapture-main/#iframe-allowusermedia">allowusermedia</a>
      <li><a href="https://w3c.github.io/mediacapture-main/#deviceid">deviceId</a>
      <li><a href="https://w3c.github.io/mediacapture-main/#dom-mediadevices-getusermedia">getUserMedia()</a>
     </ul>
