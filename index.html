@@ -1408,7 +1408,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-26">26 August 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-29">29 August 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1981,22 +1981,28 @@ pre.idl.highlight { color: #708090; }
           to fail. </p>
       <dt> <a data-link-type="dfn" href="#extra-permission-data-type" id="ref-for-extra-permission-data-type-3">extra permission data type</a> 
       <dd> A list of <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/mediacapture-main/#deviceid">deviceId</a></code> values for the devices the user
-        has granted access to. 
-      <dt> <a data-link-type="dfn" href="#permission-result-type" id="ref-for-permission-result-type-6">permission result type</a> 
-      <dd> TODO 
+        has made a non-default decision on access to. 
       <dt> <a data-link-type="dfn" href="#permission-query-algorithm" id="ref-for-permission-query-algorithm-3">permission query algorithm</a> 
-      <dd> TODO 
+      <dd>
+        The permission query algorithm runs the following steps: 
+       <ol class="algorithm">
+        <li> If <var>permissionDesc</var>.deviceId exists in the <a data-link-type="dfn" href="#extra-permission-data" id="ref-for-extra-permission-data-3">extra permission data</a>,
+        set <code><var>status</var>.state</code> to <var>permissionDesc</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> and terminate these
+        steps. 
+        <li>Set <var>global</var> to the <code class="idl"><a data-link-type="idl">PermissionDesc</a></code> for the descriptor
+        that results from removing the "deviceId" value. 
+        <li> Set <code><var>status</var>.state</code> to <var>global</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-16">permission state</a>. 
+       </ol>
       <dt> <a data-link-type="dfn" href="#permission-request-algorithm" id="ref-for-permission-request-algorithm-2">permission request algorithm</a> 
-      <dd> TODO 
+      <dd> Run the <a data-link-type="dfn" href="#boolean-permission-request-algorithm" id="ref-for-boolean-permission-request-algorithm-3">boolean permission request algorithm</a> 
       <dt> <a data-link-type="dfn" href="#permission-revocation-algorithm" id="ref-for-permission-revocation-algorithm-2">permission revocation algorithm</a> 
-      <dd> TODO: Stop playing/recording data? 
+      <dd> When permission for a device is revoked, the UA MUST run the
+        algorithm to stop the track for any other reason than the stop()
+        method being invoked for each MediaStreamTrack sourced from that
+        device. 
      </dl>
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-device-info">"device-info"</dfn> permission controls access to names and capabilities of input and
       output devices. </p>
-     <p> A successful call to the <code>getUserMedia</code> function of <a data-link-type="biblio" href="#biblio-getusermedia">[GETUSERMEDIA]</a> MUST cause permission to be granted for the returned
-      devices, and MAY cause other permissions to be granted. </p>
-     <p> Stopping a MediaStreamTrack MAY cause permission to be revoked for
-      the associated device. </p>
     </section>
     <section>
      <h3 class="heading settled" data-level="10.6" id="background-sync"><span class="secno">10.6. </span><span class="content"> Background Sync </span><a class="self-link" href="#background-sync"></a></h3>
@@ -2007,7 +2013,7 @@ pre.idl.highlight { color: #708090; }
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-persistent-storage">"persistent-storage"</dfn> permission allows an origin to make its <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#site-storage-unit">site storage unit</a> contain a <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#persistent-box">persistent box</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-2">"persistent-storage"</a></code> is a <a data-link-type="dfn" href="#boolean-feature" id="ref-for-boolean-feature-3">boolean
       feature</a>. </p>
      <p> If a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> <a data-link-type="dfn" href="#request-permission-to-use" id="ref-for-request-permission-to-use-4">requests permission to use</a> <code>{name: "persistent-storage"}</code> and
-      that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> in
+      that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-17">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> in
       all <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> until the UA receives <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-8">new
       information about the user’s intent</a>. </p>
     </section>
@@ -2477,8 +2483,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-permission-state-9">10. 
     Permission Registry </a> <a href="#ref-for-permission-state-10">(2)</a> <a href="#ref-for-permission-state-11">(3)</a> <a href="#ref-for-permission-state-12">(4)</a> <a href="#ref-for-permission-state-13">(5)</a>
     <li><a href="#ref-for-permission-state-14">10.5. 
-      Media Devices </a>
-    <li><a href="#ref-for-permission-state-15">10.7. 
+      Media Devices </a> <a href="#ref-for-permission-state-15">(2)</a> <a href="#ref-for-permission-state-16">(3)</a>
+    <li><a href="#ref-for-permission-state-17">10.7. 
       Persistent Storage </a>
    </ul>
   </aside>
@@ -2487,6 +2493,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <ul>
     <li><a href="#ref-for-extra-permission-data-1">10. 
     Permission Registry </a> <a href="#ref-for-extra-permission-data-2">(2)</a>
+    <li><a href="#ref-for-extra-permission-data-3">10.5. 
+      Media Devices </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="request-permission-to-use">
@@ -2651,6 +2659,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Common permission algorithms </a>
     <li><a href="#ref-for-boolean-permission-request-algorithm-2">10. 
     Permission Registry </a>
+    <li><a href="#ref-for-boolean-permission-request-algorithm-3">10.5. 
+      Media Devices </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="enumdef-permissionname">
@@ -2724,8 +2734,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Status of a permission </a>
     <li><a href="#ref-for-permission-result-type-2">10. 
     Permission Registry </a> <a href="#ref-for-permission-result-type-3">(2)</a> <a href="#ref-for-permission-result-type-4">(3)</a> <a href="#ref-for-permission-result-type-5">(4)</a>
-    <li><a href="#ref-for-permission-result-type-6">10.5. 
-      Media Devices </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="permission-query-algorithm">
