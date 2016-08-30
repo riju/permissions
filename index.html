@@ -1408,7 +1408,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-29">29 August 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-30">30 August 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1989,8 +1989,7 @@ pre.idl.highlight { color: #708090; }
         <li> If <var>permissionDesc</var>.deviceId exists in the <a data-link-type="dfn" href="#extra-permission-data" id="ref-for-extra-permission-data-3">extra permission data</a>,
         set <code><var>status</var>.state</code> to <var>permissionDesc</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission state</a> and terminate these
         steps. 
-        <li>Set <var>global</var> to the <code class="idl"><a data-link-type="idl">PermissionDesc</a></code> for the descriptor
-        that results from removing the "deviceId" value. 
+        <li>Let <var>global</var> be a copy of <var>permissionDesc</var> with the <code class="idl"><a data-link-type="idl" href="#dom-devicepermissiondescriptor-deviceid" id="ref-for-dom-devicepermissiondescriptor-deviceid-4">deviceId</a></code> member removed. 
         <li> Set <code><var>status</var>.state</code> to <var>global</var>’s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-16">permission state</a>. 
        </ol>
       <dt> <a data-link-type="dfn" href="#permission-request-algorithm" id="ref-for-permission-request-algorithm-2">permission request algorithm</a> 
@@ -2842,7 +2841,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <b><a href="#dom-devicepermissiondescriptor-deviceid">#dom-devicepermissiondescriptor-deviceid</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-devicepermissiondescriptor-deviceid-1">10.5. 
-      Media Devices </a> <a href="#ref-for-dom-devicepermissiondescriptor-deviceid-2">(2)</a> <a href="#ref-for-dom-devicepermissiondescriptor-deviceid-3">(3)</a>
+      Media Devices </a> <a href="#ref-for-dom-devicepermissiondescriptor-deviceid-2">(2)</a> <a href="#ref-for-dom-devicepermissiondescriptor-deviceid-3">(3)</a> <a href="#ref-for-dom-devicepermissiondescriptor-deviceid-4">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionname-device-info">
