@@ -414,6 +414,19 @@
 	 border-left: 0.5em solid #DEF;
 	}
 
+	/* Put nice boxes around each algorithm. */
+	[data-algorithm]:not(.heading) {
+	  padding: .5em;
+	  border: thin solid #ddd; border-radius: .5em;
+	  margin: .5em 0;
+	}
+	[data-algorithm]:not(.heading) > :first-child {
+	  margin-top: 0;
+	}
+	[data-algorithm]:not(.heading) > :last-child {
+	  margin-bottom: 0;
+	}
+
 	/* Style for switch/case <dl>s */
 	dl.switch > dd > ol.only,
 	dl.switch > dd > .only > ol {
@@ -1408,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-06">6 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-08">8 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1582,7 +1595,7 @@ pre.idl.highlight { color: #708090; }
   boolean sysex = false;
 };
 </pre>
-     <p> The <code class="idl"><a data-link-type="idl" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a></code> feature lets sites request to access whatever
+     <p> The <code class="idl"><a data-link-type="idl" href="#dom-permissionname-bluetooth" id="ref-for-dom-permissionname-bluetooth-1">"bluetooth"</a></code> feature lets sites request to access whatever
       Bluetooth devices are close to to the user’s device. Thus, its <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-3">permission descriptor type</a> is: </p>
 <pre>dictionary BluetoothPermissionDescriptor : PermissionDescriptor {
   DOMString deviceId;
@@ -1607,11 +1620,13 @@ pre.idl.highlight { color: #708090; }
     <section>
      <h3 class="heading settled" data-level="5.1" id="reading-current-states"><span class="secno">5.1. </span><span class="content">Reading the current permission state</span><a class="self-link" href="#reading-current-states"></a></h3>
      <div class="algorithm" data-algorithm="permission state">
-      <p> A <var>descriptor</var>’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" data-local-lt="state" id="permission-state">permission state</dfn> is
+      <p> A <var>descriptor</var>’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" data-local-lt="state" id="permission-state">permission state</dfn> for
+        an optional <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object">environment settings object</a> <var>settings</var> is
         the result of the following algorithm, which returns one of <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-2">"granted"</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-prompt" id="ref-for-dom-permissionstate-prompt-1">"prompt"</a></code>, or <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-1">"denied"</a></code>: </p>
       <ol class="algorithm">
-       <li> If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#non-secure-context">non-secure context</a> and <code><var>descriptor</var>.<code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-2">name</a></code></code> isn’t <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-1">allowed in non-secure contexts</a>, then return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-2">"denied"</a></code>. 
-       <li> If there was a previous invocation of this algorithm with the same <var>descriptor</var> and <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>, returning <var>previousResult</var>, and the UA has not received <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-1">new information about
+       <li> If <var>settings</var> wasn’t passed, set it to the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>. 
+       <li> If <var>settings</var> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#non-secure-context">non-secure context</a> and <code><var>descriptor</var>.<code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-2">name</a></code></code> isn’t <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-1">allowed in non-secure contexts</a>, then return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-2">"denied"</a></code>. 
+       <li> If there was a previous invocation of this algorithm with the same <var>descriptor</var> and <var>settings</var>, returning <var>previousResult</var>, and the UA has not received <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-1">new information about
           the user’s intent</a> since that invocation, return <var>previousResult</var>. 
        <li>
          Return whichever of the following options most accurately reflects the user’s
@@ -1636,10 +1651,11 @@ pre.idl.highlight { color: #708090; }
       <p> Some <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-5">powerful features</a> have more information associated with them
         than just a <code class="idl"><a data-link-type="idl" href="#enumdef-permissionstate" id="ref-for-enumdef-permissionstate-1">PermissionState</a></code>. For example, <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/mediacapture-main/#dom-mediadevices-getusermedia">getUserMedia()</a></code> needs to determine <em>which</em> cameras
         the user has granted the <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#current-realm">current realm</a> permission to access. Each
-        of these features defines an <a data-link-type="dfn" href="#extra-permission-data-type" id="ref-for-extra-permission-data-type-1">extra permission data type</a>. If a <code class="idl"><a data-link-type="idl" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-3">PermissionName</a></code> <var>name</var> names one of these features, then <var>name</var>’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" id="extra-permission-data">extra permission data</dfn> is the result of the following
-        algorithm: </p>
+        of these features defines an <a data-link-type="dfn" href="#extra-permission-data-type" id="ref-for-extra-permission-data-type-1">extra permission data type</a>. If a <code class="idl"><a data-link-type="idl" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-3">PermissionName</a></code> <var>name</var> names one of these features, then <var>name</var>’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" id="extra-permission-data">extra permission data</dfn> for an optional <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object">environment
+        settings object</a> <var>settings</var> is the result of the following algorithm: </p>
       <ol class="algorithm">
-       <li> If there was a previous invocation of this algorithm with the same <var>name</var> and <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>, returning <var>previousResult</var>, and the UA has not received <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-2">new information about
+       <li> If <var>settings</var> wasn’t passed, set it to the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>. 
+       <li> If there was a previous invocation of this algorithm with the same <var>name</var> and <var>settings</var>, returning <var>previousResult</var>, and the UA has not received <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-2">new information about
           the user’s intent</a> since that invocation, return <var>previousResult</var>. 
        <li> Return the instance of <var>name</var>’s <a data-link-type="dfn" href="#extra-permission-data-type" id="ref-for-extra-permission-data-type-2">extra permission data type</a> that
           matches the UA’s impression of the user’s intent, taking into account
@@ -1726,7 +1742,7 @@ pre.idl.highlight { color: #708090; }
     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionState" data-dfn-type="enum-value" data-export="" id="dom-permissionstate-prompt">"prompt"</dfn> state represents
     that the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> will be asking the user’s permission if the caller tries to access the
     feature. The user might grant, deny or dismiss the request. </p>
-<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
 <span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissionstatus">PermissionStatus</dfn> : <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionstate" id="ref-for-enumdef-permissionstate-2">PermissionState</a> <a class="nv idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state" id="ref-for-dom-permissionstatus-state-1">state</a>;
   <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="nv idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange" id="ref-for-dom-permissionstatus-onchange-1">onchange</a>;
@@ -1751,12 +1767,12 @@ pre.idl.highlight { color: #708090; }
    </section>
    <section>
     <h2 class="heading settled" data-level="7" id="navigator-and-workernavigator-extension"><span class="secno">7. </span><span class="content"> Navigator and WorkerNavigator extension </span><a class="self-link" href="#navigator-and-workernavigator-extension"></a></h2>
-<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>)]
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-1">Permissions</a> <dfn class="nv idl-code" data-dfn-for="Navigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-navigator-permissions">permissions<a class="self-link" href="#dom-navigator-permissions"></a></dfn>;
 };
 </pre>
-<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Worker</span>)]
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Worker</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions" id="ref-for-permissions-2">Permissions</a> <dfn class="nv idl-code" data-dfn-for="WorkerNavigator" data-dfn-type="attribute" data-export="" data-readonly="" data-type="Permissions" id="dom-workernavigator-permissions">permissions<a class="self-link" href="#dom-workernavigator-permissions"></a></dfn>;
 };
@@ -1764,7 +1780,7 @@ pre.idl.highlight { color: #708090; }
    </section>
    <section>
     <h2 class="heading settled" data-level="8" id="permissions-interface"><span class="secno">8. </span><span class="content"> Permissions interface </span><a class="self-link" href="#permissions-interface"></a></h2>
-<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+<pre class="idl highlight def">[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
 <span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="permissions">Permissions</dfn> {
   <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus" id="ref-for-permissionstatus-3">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-query" id="ref-for-dom-permissions-query-1">query</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-6">PermissionDescriptor</a> <dfn class="nv idl-code" data-dfn-for="Permissions/query(permissionDesc)" data-dfn-type="argument" data-export="" id="dom-permissions-query-permissiondesc-permissiondesc">permissionDesc<a class="self-link" href="#dom-permissions-query-permissiondesc-permissiondesc"></a></dfn>);
 
@@ -1782,12 +1798,12 @@ pre.idl.highlight { color: #708090; }
     descriptor type</a> other than <code class="idl"><a data-link-type="idl" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-9">PermissionDescriptor</a></code>, convert the
     underlying ECMAScript object to the <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-7">permission descriptor type</a> dictionary as <a href="http://heycam.github.io/webidl/#es-dictionary">described</a> in <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a>, then: 
       <ul>
-       <li>If that operation failed, return a <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code> rejected with
+       <li>If that operation failed, return a <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code> rejected with
         a <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-native-error-types-used-in-this-standard-typeerror">TypeError</a></code> and abort these steps. 
        <li>Otherwise, set <var>permissionDesc</var> to the result of the
         operation. 
       </ul>
-     <li>Let <var>promise</var> be a newly-created <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>. 
+     <li>Let <var>promise</var> be a newly-created <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code>. 
      <li>Return <var>promise</var> and continue the following steps
     asynchronously. 
      <li>Run the steps to <a data-link-type="dfn" href="#create-a-permissionstatus" id="ref-for-create-a-permissionstatus-1">create a PermissionStatus</a> for <var>permissionDesc</var>, and let <var>status</var> be the result. 
@@ -1796,7 +1812,7 @@ pre.idl.highlight { color: #708090; }
      <li>Resolve <var>promise</var> with <var>status</var>. 
     </ol>
     <div class="note" role="note"> If a developer wants to check multiple permissions at once, the editors
-    recommend the use of <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>.all()</code>. An example can be
+    recommend the use of <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code>.all()</code>. An example can be
     found in the <a href="#examples">Examples section</a>. </div>
     <p> When the <dfn class="dfn-paneled idl-code" data-dfn-for="Permissions" data-dfn-type="method" data-export="" data-lt="request(permissionDesc)" id="dom-permissions-request">request()</dfn> method is invoked,
     the <a data-link-type="dfn" href="https://www.w3.org/TR/uievents/#user-agent">user agent</a> MUST run the following algorithm, passing the
@@ -1807,12 +1823,12 @@ pre.idl.highlight { color: #708090; }
     descriptor type</a> other than <code class="idl"><a data-link-type="idl" href="#dictdef-permissiondescriptor" id="ref-for-dictdef-permissiondescriptor-10">PermissionDescriptor</a></code>, convert the
     underlying ECMAScript object to the <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-9">permission descriptor type</a> dictionary as <a href="http://heycam.github.io/webidl/#es-dictionary">described</a> in <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a>, then: 
       <ul>
-       <li>If that operation failed, return a <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code> rejected with
+       <li>If that operation failed, return a <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code> rejected with
         a <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-native-error-types-used-in-this-standard-typeerror">TypeError</a></code> and abort these steps. 
        <li>Otherwise, set <var>permissionDesc</var> to the result of the
         operation. 
       </ul>
-     <li>Let <var>promise</var> be a newly-created <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>. 
+     <li>Let <var>promise</var> be a newly-created <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code>. 
      <li>Return <var>promise</var> and continue the following steps
     asynchronously. 
      <li>Run the steps to <a data-link-type="dfn" href="#create-a-permissionstatus" id="ref-for-create-a-permissionstatus-2">create a PermissionStatus</a> for <var>permissionDesc</var>, and let <var>status</var> be the result. 
@@ -1862,7 +1878,7 @@ pre.idl.highlight { color: #708090; }
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-1">"speaker"</a>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info" id="ref-for-dom-permissionname-device-info-1">"device-info"</a>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1">"background-sync"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
+  <dfn class="s dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" data-lt="&quot;bluetooth&quot;|bluetooth" id="dom-permissionname-bluetooth">"bluetooth"</dfn>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-1">"persistent-storage"</a>,
 };
 </pre>
@@ -2066,7 +2082,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <div class="example" id="example-two-permissions">
      <a class="self-link" href="#example-two-permissions"></a> 
      <p> This example is checking whether the page has the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-2">"geolocation"</a></code> and the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-3">"notifications"</a></code> permissions
-    using <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#dom-promise">Promise</a></code>.all</code>. </p>
+    using <code><code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-promise">Promise</a></code>.all</code>. </p>
 <pre class="highlight">Promise.all([
   navigator.permissions.query({ name: "geolocation" }),
   navigator.permissions.query({ name: "notifications" })
@@ -2147,6 +2163,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li><a href="#allowed-in-non-secure-contexts">allowed in non-secure contexts</a><span>, in §10</span>
    <li><a href="#aspects">aspects</a><span>, in §4</span>
    <li><a href="#dom-permissionname-background-sync">"background-sync"</a><span>, in §10.6</span>
+   <li><a href="#dom-permissionname-bluetooth">"bluetooth"</a><span>, in §10</span>
+   <li><a href="#dom-permissionname-bluetooth">bluetooth</a><span>, in §10</span>
    <li><a href="#boolean-feature">boolean feature</a><span>, in §10</span>
    <li><a href="#boolean-permission-query-algorithm">boolean permission query algorithm</a><span>, in §9</span>
    <li><a href="#boolean-permission-request-algorithm">boolean permission request algorithm</a><span>, in §9</span>
@@ -2283,14 +2301,14 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[web-bluetooth]</a> defines the following terms:
     <ul>
-     <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>
      <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothrequestdevicefilter">BluetoothRequestDeviceFilter</a>
      <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#typedefdef-bluetoothserviceuuid">BluetoothServiceUUID</a>
     </ul>
    <li>
     <a data-link-type="biblio">[WEBIDL]</a> defines the following terms:
     <ul>
-     <li><a href="https://heycam.github.io/webidl/#dom-promise">Promise</a>
+     <li><a href="https://heycam.github.io/webidl/#Exposed">Exposed</a>
+     <li><a href="https://heycam.github.io/webidl/#idl-promise">Promise</a>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -2310,8 +2328,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dd>Anne van Kesteren. <a href="https://storage.spec.whatwg.org/">Storage Standard</a>. Living Standard. URL: <a href="https://storage.spec.whatwg.org/">https://storage.spec.whatwg.org/</a>
    <dt id="biblio-uievents">[UIEVENTS]
    <dd>Gary Kacmarcik; Travis Leithead. <a href="https://github.com/w3c/uievents/">UI Events</a>. 4 August 2016. WD. URL: <a href="https://github.com/w3c/uievents/">https://github.com/w3c/uievents/</a>
-   <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
-   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webidl">[WEBIDL]
    <dd>Cameron McCormack; Boris Zbarsky. <a href="https://heycam.github.io/webidl/">WebIDL Level 1</a>. 8 March 2016. CR. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
    <dt id="biblio-whatwg-dom">[WHATWG-DOM]
@@ -2331,6 +2347,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dd>Michael van Ouwerkerk; et al. <a href="https://w3c.github.io/push-api/">Push API</a>. 15 December 2015. WD. URL: <a href="https://w3c.github.io/push-api/">https://w3c.github.io/push-api/</a>
    <dt id="biblio-web-background-sync">[WEB-BACKGROUND-SYNC]
    <dd><a href="https://wicg.github.io/BackgroundSync/spec/">Web Background Synchronization specification draft</a>. Living Standard. URL: <a href="https://wicg.github.io/BackgroundSync/spec/">https://wicg.github.io/BackgroundSync/spec/</a>
+   <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
+   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webmidi">[WEBMIDI]
    <dd>Chris Wilson; Jussi Kalliokoski. <a href="https://webaudio.github.io/web-midi-api/">Web MIDI API</a>. 17 March 2015. WD. URL: <a href="https://webaudio.github.io/web-midi-api/">https://webaudio.github.io/web-midi-api/</a>
   </dl>
@@ -2345,23 +2363,23 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionstate-prompt">"prompt"</a>,
 };
 
-[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
 <span class="kt">interface</span> <a class="nv" href="#permissionstatus">PermissionStatus</a> : <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#enumdef-permissionstate">PermissionState</a> <a class="nv idl-code" data-link-type="attribute" data-readonly="" data-type="PermissionState" href="#dom-permissionstatus-state">state</a>;
   <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a> <a class="nv idl-code" data-link-type="attribute" data-type="EventHandler" href="#dom-permissionstatus-onchange">onchange</a>;
 };
 
-[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>)]
+[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions">Permissions</a> <a class="nv" data-readonly="" data-type="Permissions" href="#dom-navigator-permissions">permissions</a>;
 };
 
-[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Worker</span>)]
+[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Worker</span>)]
 <span class="kt">partial</span> <span class="kt">interface</span> <a class="nv idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> {
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#permissions">Permissions</a> <a class="nv" data-readonly="" data-type="Permissions" href="#dom-workernavigator-permissions">permissions</a>;
 };
 
-[<a class="nv idl-code" data-link-type="extended-attribute">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
+[<a class="nv idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=(<span class="n">Window</span>,<span class="n">Worker</span>)]
 <span class="kt">interface</span> <a class="nv" href="#permissions">Permissions</a> {
   <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-query">query</a>(<a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> <a class="nv" href="#dom-permissions-query-permissiondesc-permissiondesc">permissionDesc</a>);
 
@@ -2380,7 +2398,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker">"speaker"</a>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info">"device-info"</a>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync">"background-sync"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>,
+  <a class="s" href="#dom-permissionname-bluetooth">"bluetooth"</a>,
   <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage">"persistent-storage"</a>,
 };
 
@@ -2679,6 +2697,13 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-enumdef-permissionname-4">5.2. Requesting more permission</a> <a href="#ref-for-enumdef-permissionname-5">(2)</a>
     <li><a href="#ref-for-enumdef-permissionname-6">10. 
     Permission Registry </a> <a href="#ref-for-enumdef-permissionname-7">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-permissionname-bluetooth">
+   <b><a href="#dom-permissionname-bluetooth">#dom-permissionname-bluetooth</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-permissionname-bluetooth-1">4. 
+    Descriptions of permission requests </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="allowed-in-non-secure-contexts">
