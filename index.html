@@ -1421,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-08">8 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-09">9 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1677,10 +1677,8 @@ pre.idl.highlight { color: #708090; }
        <li> If <var>current state</var> is not <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-prompt" id="ref-for-dom-permissionstate-prompt-3">"prompt"</a></code>, return <var>current state</var> and abort these steps. 
        <li> Ask the user’s permission for the calling algorithm to use the <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-6">powerful feature</a> described by <var>descriptor</var>. 
        <li>
-         If the user grants permission, return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-5">"granted"</a></code>; otherwise return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-5">"denied"</a></code>. If the user’s interaction indicates they intend this
-          choice to apply to other realms, then treat this as <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-3">new information
-          about the user’s intent</a> for other <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin">same
-          origin</a>. 
+         If the user grants permission, return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-5">"granted"</a></code>; otherwise return <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-5">"denied"</a></code>. The user’s interaction may provide <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-3">new information
+          about the user’s intent</a> for this <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> and other <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin">same origin</a>. 
         <p class="note" role="note"> This is intentionally vague about the details of the permission UI
             and how the UA infers user intent. UAs should be able to explore
             lots of UI within this framework. </p>
@@ -2234,17 +2232,17 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
+    <a data-link-type="biblio">[WHATWG-DOM]</a> defines the following terms:
+    <ul>
+     <li><a href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a>
+     <li><a href="https://dom.spec.whatwg.org/#concept-event-fire">fire an event</a>
+    </ul>
+   <li>
     <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
     <ul>
      <li><a href="https://tc39.github.io/ecma262/#sec-native-error-types-used-in-this-standard-typeerror">TypeError</a>
      <li><a href="https://tc39.github.io/ecma262/#current-realm">current realm</a>
      <li><a href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[WHATWG-DOM]</a> defines the following terms:
-    <ul>
-     <li><a href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a>
-     <li><a href="https://dom.spec.whatwg.org/#concept-event-fire">fire an event</a>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
