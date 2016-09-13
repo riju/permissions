@@ -1421,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-09">9 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-13">13 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1719,8 +1719,8 @@ pre.idl.highlight { color: #708090; }
     <section>
      <h3 class="heading settled" data-level="5.3" id="reacting-to-revocation"><span class="secno">5.3. </span><span class="content">Reacting to users revoking permission</span><a class="self-link" href="#reacting-to-revocation"></a></h3>
      <p> When the UA learns that the user no longer intends to grant permission
-      for a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> to use a <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-7">feature</a>, it must <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">queue a task</a> on <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-realm-settings-object">the Realm’s settings object</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event loop</a> to
-      run that feature’s <a data-link-type="dfn" href="#permission-revocation-algorithm" id="ref-for-permission-revocation-algorithm-1">permission revocation algorithm</a>. </p>
+      for a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> to use a <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-7">feature</a>, it must <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">queue a task</a> on the Realm’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-realm-settings-object">settings object</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event
+      loop</a> to run that feature’s <a data-link-type="dfn" href="#permission-revocation-algorithm" id="ref-for-permission-revocation-algorithm-1">permission revocation algorithm</a>. </p>
     </section>
    </section>
    <section>
@@ -2264,7 +2264,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-browsing-context">responsible browsing context</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event loop</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin">same origin</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-realm-settings-object">the realm's settings object</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-realm-settings-object">settings object</a>
     </ul>
    <li>
     <a data-link-type="biblio">[mediacapture-main]</a> defines the following terms:
