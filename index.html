@@ -1973,9 +1973,9 @@ pre.idl.highlight { color: #708090; }
      <h3 class="heading settled" data-level="10.5" id="media-devices"><span class="secno">10.5. </span><span class="content"> Media Devices </span><a class="self-link" href="#media-devices"></a></h3>
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-camera">"camera"</dfn>, <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-microphone">"microphone"</dfn> , and <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-speaker">"speaker"</dfn> permissions are associated with permission to use media devices as
       specified in <a data-link-type="biblio" href="#biblio-getusermedia">[GETUSERMEDIA]</a> and <a data-link-type="biblio" href="#biblio-audio-output">[audio-output]</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-2">"speaker"</a></code> is <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-5">allowed in non-secure contexts</a>. </p>
-     <p> If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-browsing-context">responsible browsing
-      context</a> or any of its <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#ancestor-browsing-context">ancestor browsing contexts</a> has a <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#browsing-context-container">browsing context container</a> that isn’t an <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element">iframe</a></code> element with
-      the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a></code> attribute specified, then the <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission
+     <p> If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object">current global object</a> has an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window">associated <code>Document</code></a>,
+      and that <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#document">Document</a></code> is not <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/embedded-content.html#allowed-to-use">allowed to use</a> the feature indicated
+      by attribute name <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a></code>, then the <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission
       state</a> of any descriptor with a <code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-10">name</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-2">"camera"</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-2">"microphone"</a></code> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-13">"denied"</a></code>. </p>
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-14">permission descriptor type</a> 
@@ -2234,6 +2234,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[WHATWG-DOM]</a> defines the following terms:
     <ul>
+     <li><a href="https://dom.spec.whatwg.org/#document">Document</a>
      <li><a href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a>
      <li><a href="https://dom.spec.whatwg.org/#concept-event-fire">fire an event</a>
     </ul>
@@ -2250,18 +2251,17 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">EventHandler</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#navigator">Navigator</a>
      <li><a href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#allowed-to-use">allowed to use</a>
      <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/#ancestor-browsing-context">ancestor browsing context</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#browsing-context-container">browsing context containers</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window">associated document</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object">current global object</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#current-settings-object">current settings object</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object">environment settings object</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-event-type">event handler event type</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handlers">event handlers</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element">iframe</a>
      <li><a href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel">in parallel</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">queue a task</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-browsing-context">responsible browsing context</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event loop</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin">same origin</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-realm-settings-object">settings object</a>
