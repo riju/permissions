@@ -1421,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-13">13 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-17">17 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1974,11 +1974,11 @@ pre.idl.highlight { color: #708090; }
     <section>
      <h3 class="heading settled" data-level="10.5" id="media-devices"><span class="secno">10.5. </span><span class="content"> Media Devices </span><a class="self-link" href="#media-devices"></a></h3>
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-camera">"camera"</dfn>, <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-microphone">"microphone"</dfn> , and <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-speaker">"speaker"</dfn> permissions are associated with permission to use media devices as
-      specified in <a data-link-type="biblio" href="#biblio-getusermedia">[GETUSERMEDIA]</a> and <a data-link-type="biblio" href="#biblio-audio-output">[audio-output]</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-2">"speaker"</a></code> is <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-5">allowed in non-secure contexts</a>. </p>
+      specified in <a data-link-type="biblio" href="#biblio-getusermedia">[GETUSERMEDIA]</a> and <a data-link-type="biblio" href="#biblio-audio-output">[audio-output]</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-2">"speaker"</a></code> is <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-5">allowed in non-secure contexts</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-2">"camera"</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-2">"microphone"</a></code> MAY be <a data-link-type="dfn" href="#allowed-in-non-secure-contexts" id="ref-for-allowed-in-non-secure-contexts-6">allowed in non-secure contexts</a>. </p>
      <p> If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object">current global object</a> has an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window">associated <code>Document</code></a>,
       and that <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#document">Document</a></code> is not <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/embedded-content.html#allowed-to-use">allowed to use</a> the feature indicated
       by attribute name <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-iframe-allowusermedia">allowusermedia</a></code>, then the <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-15">permission
-      state</a> of any descriptor with a <code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-10">name</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-2">"camera"</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-2">"microphone"</a></code> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-13">"denied"</a></code>. </p>
+      state</a> of any descriptor with a <code class="idl"><a data-link-type="idl" href="#dom-permissiondescriptor-name" id="ref-for-dom-permissiondescriptor-name-10">name</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-3">"camera"</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-3">"microphone"</a></code> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-13">"denied"</a></code>. </p>
      <dl>
       <dt> <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-14">permission descriptor type</a> 
       <dd>
@@ -1990,7 +1990,7 @@ pre.idl.highlight { color: #708090; }
           descriptor. </p>
        <p> If the descriptor does not have a <code class="idl"><a data-link-type="idl" href="#dom-devicepermissiondescriptor-deviceid" id="ref-for-dom-devicepermissiondescriptor-deviceid-1">deviceId</a></code>, its semantic is that it
           queries for access to all devices of that class. Thus, if a query for
-          the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-3">"camera"</a></code> permission with no <code class="idl"><a data-link-type="idl" href="#dom-devicepermissiondescriptor-deviceid" id="ref-for-dom-devicepermissiondescriptor-deviceid-2">deviceId</a></code> returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-10">"granted"</a></code>, the
+          the <code class="idl"><a data-link-type="idl" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-4">"camera"</a></code> permission with no <code class="idl"><a data-link-type="idl" href="#dom-devicepermissiondescriptor-deviceid" id="ref-for-dom-devicepermissiondescriptor-deviceid-2">deviceId</a></code> returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-10">"granted"</a></code>, the
           client knows that there will never be a permission prompt for a
           camera, and if <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-denied" id="ref-for-dom-permissionstate-denied-14">"denied"</a></code> is returned, it knows that no getUserMedia
           request for a camera will succeed. </p>
@@ -2323,13 +2323,13 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
    <dt id="biblio-secure-contexts">[SECURE-CONTEXTS]
-   <dd>Mike West. <a href="https://w3c.github.io/webappsec-secure-contexts/">Secure Contexts</a>. 19 July 2016. WD. URL: <a href="https://w3c.github.io/webappsec-secure-contexts/">https://w3c.github.io/webappsec-secure-contexts/</a>
+   <dd>Mike West. <a href="https://w3c.github.io/webappsec-secure-contexts/">Secure Contexts</a>. 15 September 2016. CR. URL: <a href="https://w3c.github.io/webappsec-secure-contexts/">https://w3c.github.io/webappsec-secure-contexts/</a>
    <dt id="biblio-storage">[STORAGE]
    <dd>Anne van Kesteren. <a href="https://storage.spec.whatwg.org/">Storage Standard</a>. Living Standard. URL: <a href="https://storage.spec.whatwg.org/">https://storage.spec.whatwg.org/</a>
    <dt id="biblio-uievents">[UIEVENTS]
    <dd>Gary Kacmarcik; Travis Leithead. <a href="https://github.com/w3c/uievents/">UI Events</a>. 4 August 2016. WD. URL: <a href="https://github.com/w3c/uievents/">https://github.com/w3c/uievents/</a>
    <dt id="biblio-webidl">[WEBIDL]
-   <dd>Cameron McCormack; Boris Zbarsky. <a href="https://heycam.github.io/webidl/">WebIDL Level 1</a>. 8 March 2016. CR. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
+   <dd>Cameron McCormack; Boris Zbarsky. <a href="https://heycam.github.io/webidl/">WebIDL Level 1</a>. 15 September 2016. PR. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
    <dt id="biblio-whatwg-dom">[WHATWG-DOM]
    <dd>Anne van Kesteren. <a href="https://dom.spec.whatwg.org/">DOM Standard</a>. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
   </dl>
@@ -2717,7 +2717,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-allowed-in-non-secure-contexts-4">10.4. 
       Midi </a>
     <li><a href="#ref-for-allowed-in-non-secure-contexts-5">10.5. 
-      Media Devices </a>
+      Media Devices </a> <a href="#ref-for-allowed-in-non-secure-contexts-6">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="permission-descriptor-type">
@@ -2861,7 +2861,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-dom-permissionname-camera-1">10. 
     Permission Registry </a>
     <li><a href="#ref-for-dom-permissionname-camera-2">10.5. 
-      Media Devices </a> <a href="#ref-for-dom-permissionname-camera-3">(2)</a>
+      Media Devices </a> <a href="#ref-for-dom-permissionname-camera-3">(2)</a> <a href="#ref-for-dom-permissionname-camera-4">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionname-microphone">
@@ -2870,7 +2870,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-dom-permissionname-microphone-1">10. 
     Permission Registry </a>
     <li><a href="#ref-for-dom-permissionname-microphone-2">10.5. 
-      Media Devices </a>
+      Media Devices </a> <a href="#ref-for-dom-permissionname-microphone-3">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionname-speaker">
