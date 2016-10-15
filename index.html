@@ -1421,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-21">21 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-10-15">15 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1601,8 +1601,9 @@ pre.idl.highlight { color: #708090; }
       Bluetooth devices are close to to the user’s device. Thus, its <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-3">permission descriptor type</a> is: </p>
 <pre>dictionary BluetoothPermissionDescriptor : PermissionDescriptor {
   DOMString deviceId;
-  sequence&lt;<a data-link-type="idl" href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothrequestdevicefilter">BluetoothRequestDeviceFilter</a>> filters;
+  sequence&lt;<a data-link-type="idl" href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothlescanfilterinit">BluetoothLEScanFilterInit</a>> filters;
   sequence&lt;<a data-link-type="idl" href="https://webbluetoothcg.github.io/web-bluetooth/#typedefdef-bluetoothserviceuuid">BluetoothServiceUUID</a>> optionalServices = [];
+  boolean acceptAllDevices = false;
 };
 </pre>
      <p> General access to Bluetooth devices is represented by <code>{name: 'bluetooth'}</code>; access to a particular device is represented by <code>{name: 'bluetooth', deviceId: "id"}</code>; and access to a device with a particular
@@ -2306,7 +2307,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[web-bluetooth]</a> defines the following terms:
     <ul>
-     <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothrequestdevicefilter">BluetoothRequestDeviceFilter</a>
+     <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothlescanfilterinit">BluetoothLEScanFilterInit</a>
      <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#typedefdef-bluetoothserviceuuid">BluetoothServiceUUID</a>
     </ul>
    <li>
