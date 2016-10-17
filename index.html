@@ -1421,7 +1421,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-10-15">15 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-10-17">17 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1508,7 +1508,6 @@ pre.idl.highlight { color: #708090; }
       <li><a href="#midi"><span class="secno">10.4</span> <span class="content"> Midi </span></a>
       <li><a href="#media-devices"><span class="secno">10.5</span> <span class="content"> Media Devices </span></a>
       <li><a href="#background-sync"><span class="secno">10.6</span> <span class="content"> Background Sync </span></a>
-      <li><a href="#persistent-storage"><span class="secno">10.7</span> <span class="content"> Persistent Storage </span></a>
      </ol>
     <li><a href="#examples"><span class="secno">11</span> <span class="content"> Examples </span></a>
     <li><a href="#acknowledgments"><span class="secno"></span> <span class="content"> Acknowledgments </span></a>
@@ -1597,7 +1596,7 @@ pre.idl.highlight { color: #708090; }
   boolean sysex = false;
 };
 </pre>
-     <p> The <code class="idl"><a data-link-type="idl" href="#dom-permissionname-bluetooth" id="ref-for-dom-permissionname-bluetooth-1">"bluetooth"</a></code> feature lets sites request to access whatever
+     <p> The <code class="idl"><a data-link-type="idl" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a></code> feature lets sites request to access whatever
       Bluetooth devices are close to to the user’s device. Thus, its <a data-link-type="dfn" href="#permission-descriptor-type" id="ref-for-permission-descriptor-type-3">permission descriptor type</a> is: </p>
 <pre>dictionary BluetoothPermissionDescriptor : PermissionDescriptor {
   DOMString deviceId;
@@ -1874,18 +1873,18 @@ pre.idl.highlight { color: #708090; }
    </section>
    <section>
     <h2 class="heading settled" data-level="10" id="permission-registry"><span class="secno">10. </span><span class="content"> Permission Registry </span><a class="self-link" href="#permission-registry"></a></h2>
-<pre class="idl highlight def" title=""><span class="kt">enum</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionname">PermissionName</dfn> {
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-1">"geolocation"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-1">"notifications"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-push" id="ref-for-dom-permissionname-push-1">"push"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-midi" id="ref-for-dom-permissionname-midi-2">"midi"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-1">"camera"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-1">"microphone"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-1">"speaker"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info" id="ref-for-dom-permissionname-device-info-1">"device-info"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1">"background-sync"</a>,
-  <dfn class="s dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" data-lt="&quot;bluetooth&quot;|bluetooth" id="dom-permissionname-bluetooth">"bluetooth"</dfn>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-1">"persistent-storage"</a>,
+<pre class="lang-webidl highlight"><span class="kt">enum</span> <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export="" id="enumdef-permissionname"><span class="nv">PermissionName</span></dfn> {
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation" id="ref-for-dom-permissionname-geolocation-1"><span class="s">"geolocation"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications" id="ref-for-dom-permissionname-notifications-1"><span class="s">"notifications"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-push" id="ref-for-dom-permissionname-push-1"><span class="s">"push"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-midi" id="ref-for-dom-permissionname-midi-2"><span class="s">"midi"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-camera" id="ref-for-dom-permissionname-camera-1"><span class="s">"camera"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone" id="ref-for-dom-permissionname-microphone-1"><span class="s">"microphone"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker" id="ref-for-dom-permissionname-speaker-1"><span class="s">"speaker"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info" id="ref-for-dom-permissionname-device-info-1"><span class="s">"device-info"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1"><span class="s">"background-sync"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth"><span class="s">"bluetooth"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="https://storage.spec.whatwg.org/#dom-permissionname-persistent-storage"><span class="s">"persistent-storage"</span></a>,
 };
 </pre>
     <p> Each enumeration value in the <code class="idl"><a data-link-type="idl" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-6">PermissionName</a></code> enum identifies a <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-8">powerful feature</a>. Each <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-9">powerful feature</a> has the following
@@ -2035,15 +2034,6 @@ pre.idl.highlight { color: #708090; }
      <h3 class="heading settled" data-level="10.6" id="background-sync"><span class="secno">10.6. </span><span class="content"> Background Sync </span><a class="self-link" href="#background-sync"></a></h3>
      <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-background-sync">"background-sync"</dfn> permission is the permission associated with the usage of <a data-link-type="biblio" href="#biblio-web-background-sync">[web-background-sync]</a>. </p>
     </section>
-    <section>
-     <h3 class="heading settled" data-level="10.7" id="persistent-storage"><span class="secno">10.7. </span><span class="content"> Persistent Storage </span><a class="self-link" href="#persistent-storage"></a></h3>
-     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-persistent-storage">"persistent-storage"</dfn> permission allows an origin to make its <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#site-storage-unit">site storage unit</a> contain a <a data-link-type="dfn" href="https://storage.spec.whatwg.org/#persistent-box">persistent box</a>. <code class="idl"><a data-link-type="idl" href="#dom-permissionname-persistent-storage" id="ref-for-dom-permissionname-persistent-storage-2">"persistent-storage"</a></code> is a <a data-link-type="dfn" href="#boolean-feature" id="ref-for-boolean-feature-3">boolean
-      feature</a>. </p>
-     <p> If a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realm</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> <a data-link-type="dfn" href="#request-permission-to-use" id="ref-for-request-permission-to-use-4">requests permission to use</a> <code>{name: "persistent-storage"}</code> and
-      that algorithm returns <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-11">"granted"</a></code>, then <code>{name: "persistent-storage"}</code>'s <a data-link-type="dfn" href="#permission-state" id="ref-for-permission-state-18">permission state</a> must be <code class="idl"><a data-link-type="idl" href="#dom-permissionstate-granted" id="ref-for-dom-permissionstate-granted-12">"granted"</a></code> in
-      all <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-code-realms">realms</a> with <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a> <var>O</var> until the UA receives <a data-link-type="dfn" href="#new-information-about-the-users-intent" id="ref-for-new-information-about-the-users-intent-8">new
-      information about the user’s intent</a>. </p>
-    </section>
    </section>
    <section class="non-normative">
     <h2 class="heading settled" data-level="11" id="examples"><span class="secno">11. </span><span class="content"> Examples </span><a class="self-link" href="#examples"></a></h2>
@@ -2169,8 +2159,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li><a href="#allowed-in-non-secure-contexts">allowed in non-secure contexts</a><span>, in §10</span>
    <li><a href="#aspects">aspects</a><span>, in §4</span>
    <li><a href="#dom-permissionname-background-sync">"background-sync"</a><span>, in §10.6</span>
-   <li><a href="#dom-permissionname-bluetooth">"bluetooth"</a><span>, in §10</span>
-   <li><a href="#dom-permissionname-bluetooth">bluetooth</a><span>, in §10</span>
    <li><a href="#boolean-feature">boolean feature</a><span>, in §10</span>
    <li><a href="#boolean-permission-query-algorithm">boolean permission query algorithm</a><span>, in §9</span>
    <li><a href="#boolean-permission-request-algorithm">boolean permission request algorithm</a><span>, in §9</span>
@@ -2212,7 +2200,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li><a href="#permission-state-constraints">permission state constraints</a><span>, in §10</span>
    <li><a href="#permissionstatus">PermissionStatus</a><span>, in §6</span>
    <li><a href="#permission-task-source">permission task source</a><span>, in §6</span>
-   <li><a href="#dom-permissionname-persistent-storage">"persistent-storage"</a><span>, in §10.7</span>
    <li><a href="#powerful-feature">Powerful feature</a><span>, in §3</span>
    <li><a href="#dom-permissionstate-prompt">"prompt"</a><span>, in §6</span>
    <li><a href="#prompt-the-user-to-choose">prompting the user to choose</a><span>, in §5.2</span>
@@ -2267,7 +2254,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-event-type">event handler event type</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-handlers">event handlers</a>
      <li><a href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel">in parallel</a>
-     <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">origin</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">queue a task</a>
      <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#responsible-event-loop">responsible event loop</a>
      <li><a href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin">same origin</a>
@@ -2296,8 +2282,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[STORAGE]</a> defines the following terms:
     <ul>
-     <li><a href="https://storage.spec.whatwg.org/#persistent-box">persistent box</a>
-     <li><a href="https://storage.spec.whatwg.org/#site-storage-unit">site storage units</a>
+     <li><a href="https://storage.spec.whatwg.org/#dom-permissionname-persistent-storage">"persistent-storage"</a>
     </ul>
    <li>
     <a data-link-type="biblio">[uievents]</a> defines the following terms:
@@ -2307,6 +2292,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li>
     <a data-link-type="biblio">[web-bluetooth]</a> defines the following terms:
     <ul>
+     <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth">"bluetooth"</a>
      <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#dictdef-bluetoothlescanfilterinit">BluetoothLEScanFilterInit</a>
      <li><a href="https://webbluetoothcg.github.io/web-bluetooth/#typedefdef-bluetoothserviceuuid">BluetoothServiceUUID</a>
     </ul>
@@ -2335,6 +2321,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dd>Anne van Kesteren. <a href="https://storage.spec.whatwg.org/">Storage Standard</a>. Living Standard. URL: <a href="https://storage.spec.whatwg.org/">https://storage.spec.whatwg.org/</a>
    <dt id="biblio-uievents">[UIEVENTS]
    <dd>Gary Kacmarcik; Travis Leithead. <a href="https://github.com/w3c/uievents/">UI Events</a>. 4 August 2016. WD. URL: <a href="https://github.com/w3c/uievents/">https://github.com/w3c/uievents/</a>
+   <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
+   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webidl-1">[WebIDL-1]
    <dd>Cameron McCormack; Boris Zbarsky. <a href="https://heycam.github.io/webidl/">WebIDL Level 1</a>. 15 September 2016. PR. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
    <dt id="biblio-whatwg-dom">[WHATWG-DOM]
@@ -2354,8 +2342,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dd>Michael van Ouwerkerk; et al. <a href="https://w3c.github.io/push-api/">Push API</a>. 15 December 2015. WD. URL: <a href="https://w3c.github.io/push-api/">https://w3c.github.io/push-api/</a>
    <dt id="biblio-web-background-sync">[WEB-BACKGROUND-SYNC]
    <dd><a href="https://wicg.github.io/BackgroundSync/spec/">Web Background Synchronization specification draft</a>. Living Standard. URL: <a href="https://wicg.github.io/BackgroundSync/spec/">https://wicg.github.io/BackgroundSync/spec/</a>
-   <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
-   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webmidi">[WEBMIDI]
    <dd>Chris Wilson; Jussi Kalliokoski. <a href="https://webaudio.github.io/web-midi-api/">Web MIDI API</a>. 17 March 2015. WD. URL: <a href="https://webaudio.github.io/web-midi-api/">https://webaudio.github.io/web-midi-api/</a>
   </dl>
@@ -2395,20 +2381,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
   <span class="kt">Promise</span>&lt;<a class="n" data-link-type="idl-name" href="#permissionstatus">PermissionStatus</a>> <a class="nv idl-code" data-link-type="method" href="#dom-permissions-revoke">revoke</a>(<span class="kt">object</span> <a class="nv" href="#dom-permissions-revoke-permissiondesc-permissiondesc">permissionDesc</a>);
 };
 
-<span class="kt">enum</span> <a class="nv" href="#enumdef-permissionname">PermissionName</a> {
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-geolocation">"geolocation"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-notifications">"notifications"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-push">"push"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-midi">"midi"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-camera">"camera"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-microphone">"microphone"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-speaker">"speaker"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-device-info">"device-info"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync">"background-sync"</a>,
-  <a class="s" href="#dom-permissionname-bluetooth">"bluetooth"</a>,
-  <a class="s idl-code" data-link-type="enum-value" href="#dom-permissionname-persistent-storage">"persistent-storage"</a>,
-};
-
 <span class="kt">dictionary</span> <a class="nv" href="#dictdef-pushpermissiondescriptor">PushPermissionDescriptor</a> : <a class="n" data-link-type="idl-name" href="#dictdef-permissiondescriptor">PermissionDescriptor</a> {
   <span class="kt">boolean</span> <a class="nv" data-default="false" data-type="boolean " href="#dom-pushpermissiondescriptor-uservisibleonly">userVisibleOnly</a> = <span class="kt">false</span>;
 };
@@ -2442,8 +2414,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Permissions interface </a>
     <li><a href="#ref-for-new-information-about-the-users-intent-7">10. 
     Permission Registry </a>
-    <li><a href="#ref-for-new-information-about-the-users-intent-8">10.7. 
-      Persistent Storage </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="powerful-feature">
@@ -2516,8 +2486,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Permission Registry </a> <a href="#ref-for-permission-state-10">(2)</a> <a href="#ref-for-permission-state-11">(3)</a> <a href="#ref-for-permission-state-12">(4)</a> <a href="#ref-for-permission-state-13">(5)</a> <a href="#ref-for-permission-state-14">(6)</a>
     <li><a href="#ref-for-permission-state-15">10.5. 
       Media Devices </a> <a href="#ref-for-permission-state-16">(2)</a> <a href="#ref-for-permission-state-17">(3)</a>
-    <li><a href="#ref-for-permission-state-18">10.7. 
-      Persistent Storage </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="extra-permission-data">
@@ -2535,8 +2503,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     <li><a href="#ref-for-request-permission-to-use-1">5.2. Requesting more permission</a> <a href="#ref-for-request-permission-to-use-2">(2)</a>
     <li><a href="#ref-for-request-permission-to-use-3">9. 
     Common permission algorithms </a>
-    <li><a href="#ref-for-request-permission-to-use-4">10.7. 
-      Persistent Storage </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="prompt-the-user-to-choose">
@@ -2566,8 +2532,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Permission Registry </a> <a href="#ref-for-dom-permissionstate-granted-9">(2)</a>
     <li><a href="#ref-for-dom-permissionstate-granted-10">10.5. 
       Media Devices </a>
-    <li><a href="#ref-for-dom-permissionstate-granted-11">10.7. 
-      Persistent Storage </a> <a href="#ref-for-dom-permissionstate-granted-12">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionstate-denied">
@@ -2706,13 +2670,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Permission Registry </a> <a href="#ref-for-enumdef-permissionname-7">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-permissionname-bluetooth">
-   <b><a href="#dom-permissionname-bluetooth">#dom-permissionname-bluetooth</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-permissionname-bluetooth-1">4. 
-    Descriptions of permission requests </a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="allowed-in-non-secure-contexts">
    <b><a href="#allowed-in-non-secure-contexts">#allowed-in-non-secure-contexts</a></b><b>Referenced in:</b>
    <ul>
@@ -2822,8 +2779,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
       Geolocation </a>
     <li><a href="#ref-for-boolean-feature-2">10.2. 
       Notifications </a>
-    <li><a href="#ref-for-boolean-feature-3">10.7. 
-      Persistent Storage </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-permissionname-geolocation">
@@ -2908,15 +2863,6 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <ul>
     <li><a href="#ref-for-dom-permissionname-background-sync-1">10. 
     Permission Registry </a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="dom-permissionname-persistent-storage">
-   <b><a href="#dom-permissionname-persistent-storage">#dom-permissionname-persistent-storage</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-permissionname-persistent-storage-1">10. 
-    Permission Registry </a>
-    <li><a href="#ref-for-dom-permissionname-persistent-storage-2">10.7. 
-      Persistent Storage </a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
