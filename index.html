@@ -1176,7 +1176,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 9a16729f5dbf458a556c2e0e347b203ca14e2c7d" name="generator">
+  <meta content="Bikeshed version fa6d32dea6b39d19cbb9dd6d5e69f189e8bdd53f" name="generator">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1423,7 +1423,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Permissions</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-10">10 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-21">21 March 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1511,6 +1511,7 @@ pre.idl.highlight { color: #708090; }
       <li><a href="#media-devices"><span class="secno">10.5</span> <span class="content"> Media Devices </span></a>
       <li><a href="#background-sync"><span class="secno">10.6</span> <span class="content"> Background Sync </span></a>
       <li><a href="#ambient-light-sensor"><span class="secno">10.7</span> <span class="content"> Ambient Light Sensor </span></a>
+      <li><a href="#clipboard"><span class="secno">10.8</span> <span class="content"> Clipboard </span></a>
      </ol>
     <li><a href="#examples"><span class="secno">11</span> <span class="content"> Examples </span></a>
     <li><a href="#acknowledgments"><span class="secno"></span> <span class="content"> Acknowledgments </span></a>
@@ -1888,7 +1889,8 @@ pre.idl.highlight { color: #708090; }
   <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-background-sync" id="ref-for-dom-permissionname-background-sync-1"><span class="s">"background-sync"</span></a>,
   <a class="idl-code" data-link-type="enum-value" href="https://webbluetoothcg.github.io/web-bluetooth/#dom-permissionname-bluetooth"><span class="s">"bluetooth"</span></a>,
   <a class="idl-code" data-link-type="enum-value" href="https://storage.spec.whatwg.org/#dom-permissionname-persistent-storage"><span class="s">"persistent-storage"</span></a>,
-  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-ambient-light-sensor" id="ref-for-dom-permissionname-ambient-light-sensor-1"><span class="s">"ambient-light-sensor"</span></a>
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-ambient-light-sensor" id="ref-for-dom-permissionname-ambient-light-sensor-1"><span class="s">"ambient-light-sensor"</span></a>,
+  <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-clipboard" id="ref-for-dom-permissionname-clipboard-1"><span class="s">"clipboard"</span></a>,
 };
 </pre>
     <p> Each enumeration value in the <code class="idl"><a data-link-type="idl" href="#enumdef-permissionname" id="ref-for-enumdef-permissionname-6">PermissionName</a></code> enum identifies a <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-8">powerful feature</a>. Each <a data-link-type="dfn" href="#powerful-feature" id="ref-for-powerful-feature-9">powerful feature</a> has the following
@@ -2044,6 +2046,11 @@ pre.idl.highlight { color: #708090; }
      <p>Its <a data-link-type="dfn" href="#permission-revocation-algorithm" id="ref-for-permission-revocation-algorithm-3">permission revocation algorithm</a> is the result of calling <a data-link-type="dfn">generic sensor permission revocation algorithm</a> passing it <a class="idl-code" data-link-type="enum-value" href="#dom-permissionname-ambient-light-sensor" id="ref-for-dom-permissionname-ambient-light-sensor-2">"ambient-light-sensor"</a> as argument.</p>
      <p></p>
     </section>
+    <section>
+     <h3 class="heading settled" data-level="10.8" id="clipboard"><span class="secno">10.8. </span><span class="content"> Clipboard </span><a class="self-link" href="#clipboard"></a></h3>
+     <p> The <dfn class="dfn-paneled idl-code" data-dfn-for="PermissionName" data-dfn-type="enum-value" data-export="" id="dom-permissionname-clipboard">"clipboard"</dfn> permission is the permission associated with the usage of the
+      asynchronous methods in the <a data-link-type="biblio" href="#biblio-clipboard-apis">[clipboard-apis]</a>. </p>
+    </section>
    </section>
    <section class="non-normative">
     <h2 class="heading settled" data-level="11" id="examples"><span class="secno">11. </span><span class="content"> Examples </span><a class="self-link" href="#examples"></a></h2>
@@ -2174,6 +2181,7 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <li><a href="#boolean-permission-query-algorithm">boolean permission query algorithm</a><span>, in §9</span>
    <li><a href="#boolean-permission-request-algorithm">boolean permission request algorithm</a><span>, in §9</span>
    <li><a href="#dom-permissionname-camera">"camera"</a><span>, in §10.5</span>
+   <li><a href="#dom-permissionname-clipboard">"clipboard"</a><span>, in §10.8</span>
    <li><a href="#create-a-permissionstatus">create a PermissionStatus</a><span>, in §6</span>
    <li><a href="#dom-permissionstate-denied">"denied"</a><span>, in §6</span>
    <li><a href="#dom-devicepermissiondescriptor-deviceid">deviceId</a><span>, in §10.5</span>
@@ -2350,6 +2358,8 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
    <dd>Anssi Kostiainen; Tobie Langel. <a href="https://www.w3.org/TR/ambient-light/">Ambient Light Sensor</a>. URL: <a href="https://www.w3.org/TR/ambient-light/">https://www.w3.org/TR/ambient-light/</a>
    <dt id="biblio-audio-output">[AUDIO-OUTPUT]
    <dd>Justin Uberti; Guido Urdaneta. <a href="https://www.w3.org/TR/audio-output/">Audio Output Devices API</a>. URL: <a href="https://www.w3.org/TR/audio-output/">https://www.w3.org/TR/audio-output/</a>
+   <dt id="biblio-clipboard-apis">[CLIPBOARD-APIS]
+   <dd>Hallvord Steen. <a href="https://www.w3.org/TR/clipboard-apis/">Clipboard API and events</a>. URL: <a href="https://www.w3.org/TR/clipboard-apis/">https://www.w3.org/TR/clipboard-apis/</a>
    <dt id="biblio-geolocation-api">[geolocation-API]
    <dd>Andrei Popescu. <a href="https://www.w3.org/TR/geolocation-API/">Geolocation API Specification 2nd Edition</a>. URL: <a href="https://www.w3.org/TR/geolocation-API/">https://www.w3.org/TR/geolocation-API/</a>
    <dt id="biblio-getusermedia">[GETUSERMEDIA]
@@ -2906,6 +2916,13 @@ navigator.permissions.query({ name: 'notifications' }).then((result) => {
     Permission Registry </a>
     <li><a href="#ref-for-dom-permissionname-ambient-light-sensor-2">10.7. 
       Ambient Light Sensor </a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-permissionname-clipboard">
+   <b><a href="#dom-permissionname-clipboard">#dom-permissionname-clipboard</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-permissionname-clipboard-1">10. 
+    Permission Registry </a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
